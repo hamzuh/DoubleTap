@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bjoeob5rnrna2"]
+
+[ext_resource type="Script" uid="uid://c5b3ape1fuatr" path="res://Scripts/followerEnemy.gd" id="1_swvey"]
+[ext_resource type="Texture2D" uid="uid://c24jw8vj2v1ya" path="res://Art/enemy.png" id="2_sngmf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7upyn"]
+radius = 17.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1914469750 groups=["Enemy"]]
+z_index = 2
+motion_mode = 1
+script = ExtResource("1_swvey")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1503296724]
+texture = ExtResource("2_sngmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1839065831]
+shape = SubResource("CircleShape2D_7upyn")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=390726249]
+
+[node name="Timer" type="Timer" parent="." unique_id=951260271]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

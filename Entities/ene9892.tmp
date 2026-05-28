@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://71jhvkusrjf2"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_rcy1f"]
+[ext_resource type="Texture2D" uid="uid://c24jw8vj2v1ya" path="res://Art/enemy.png" id="2_hyxkg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7upyn"]
+radius = 17.0
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+z_index = 2
+position = Vector2(200, 0)
+motion_mode = 1
+script = ExtResource("1_rcy1f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hyxkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7upyn")

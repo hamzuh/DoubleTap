@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b0dfoartaonu0"]
+
+[ext_resource type="PackedScene" uid="uid://bccv1ywb5dh7s" path="res://Entities/player.tscn" id="1_3dglx"]
+[ext_resource type="Script" uid="uid://c0tbq3yiqqsk5" path="res://Scripts/basescene.gd" id="1_jgno3"]
+[ext_resource type="PackedScene" uid="uid://2vtemamcqq6h" path="res://level1.tscn" id="3_j7xdm"]
+[ext_resource type="PackedScene" uid="uid://71jhvkusrjf2" path="res://Entities/enemy.tscn" id="4_uuv3h"]
+[ext_resource type="PackedScene" uid="uid://ch8hesqmfncmk" path="res://Misc/HUD.tscn" id="5_nut14"]
+[ext_resource type="PackedScene" uid="uid://bjoeob5rnrna2" path="res://Entities/followerenemy.tscn" id="6_egx48"]
+
+[node name="Node" type="Node" unique_id=612323886]
+script = ExtResource("1_jgno3")
+
+[node name="Player" parent="." unique_id=1698362834 instance=ExtResource("1_3dglx")]
+
+[node name="Level" parent="." unique_id=649146009 instance=ExtResource("3_j7xdm")]
+
+[node name="Enemy" parent="." unique_id=2044508212 instance=ExtResource("4_uuv3h")]
+
+[node name="Enemy2" parent="." unique_id=252283759 instance=ExtResource("4_uuv3h")]
+position = Vector2(250, 100)
+
+[node name="Enemy3" parent="." unique_id=680380083 instance=ExtResource("4_uuv3h")]
+position = Vector2(-200, -100)
+
+[node name="Enemy4" parent="." unique_id=1261267140 instance=ExtResource("4_uuv3h")]
+position = Vector2(-100, 300)
+
+[node name="HUD" parent="." unique_id=1278146990 instance=ExtResource("5_nut14")]
+
+[node name="Enemy5" parent="." unique_id=1914469750 instance=ExtResource("6_egx48")]
+position = Vector2(407, -392)
+
+[connection signal="money_changed" from="Player" to="HUD" method="_on_player_money_changed"]

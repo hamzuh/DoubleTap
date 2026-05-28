@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://bccv1ywb5dh7s"]
+
+[ext_resource type="Script" uid="uid://du8g8dmvcg6jk" path="res://Scripts/Player/CharacterBody2D.gd" id="1_dcg4n"]
+[ext_resource type="Texture2D" uid="uid://byali22t6bvb3" path="res://Art/Player/walk/leftleg.png" id="4_hh3xu"]
+[ext_resource type="Texture2D" uid="uid://c6w83nks8n3n4" path="res://Art/Player/walk/rightleg.png" id="5_6cpw0"]
+[ext_resource type="Script" uid="uid://jlbwwim7iocr" path="res://Scripts/Player/State Machine.gd" id="6_lfewg"]
+[ext_resource type="Script" uid="uid://d255sjbxpohmd" path="res://Scripts/Player/States/Idle.gd" id="7_fa3h5"]
+[ext_resource type="Script" uid="uid://bi8fim2l7qbwm" path="res://Scripts/Player/States/Moving.gd" id="8_o2785"]
+[ext_resource type="Texture2D" uid="uid://dghq18rsd8vy4" path="res://Art/Player/attack/attack1/lp1.png" id="8_s4s2l"]
+[ext_resource type="Texture2D" uid="uid://bx0i0obgjmawj" path="res://Art/Player/attack/attack1/lp2.png" id="9_8rw76"]
+[ext_resource type="Texture2D" uid="uid://bqxkagdjqbxvp" path="res://Art/Player/attack/attack1/lp3(lp1).png" id="10_4nhu0"]
+[ext_resource type="Texture2D" uid="uid://c4n86phsw5tin" path="res://Art/Player/attack/attack2/rp1.png" id="12_hx8w8"]
+[ext_resource type="Texture2D" uid="uid://6a6gawwm7yxq" path="res://Art/Player/attack/attack2/rp2.png" id="13_478ti"]
+[ext_resource type="Texture2D" uid="uid://c4jn3jgfey4dv" path="res://Art/Player/attack/attack2/rp3.png" id="14_o5x8e"]
+[ext_resource type="Texture2D" uid="uid://b1ovqkmraylvi" path="res://Art/Player/attack/attack3/k1.png" id="16_x6csf"]
+[ext_resource type="Texture2D" uid="uid://bnv214jwurwop" path="res://Art/Player/attack/attack3/k2.png" id="17_o0pwu"]
+[ext_resource type="Texture2D" uid="uid://ckj4gbq2aitwq" path="res://Art/Player/attack/attack3/k3.png" id="18_cv7bs"]
+[ext_resource type="Script" uid="uid://coopc4o0p4ny7" path="res://Scripts/Player/States/Attacks/Attack2.gd" id="18_omeev"]
+[ext_resource type="Script" uid="uid://dmlyfqcibqjm4" path="res://Scripts/Player/States/Attacks/Attack3.gd" id="19_p1g68"]
+[ext_resource type="Script" uid="uid://07bgrreiwtmj" path="res://Scripts/Player/States/Attacks/Attack.gd" id="20_bfq4n"]
+[ext_resource type="Texture2D" uid="uid://4fitgkofdtto" path="res://Art/Player/idle.png" id="20_qrqvp"]
+[ext_resource type="Script" uid="uid://cpr0tsfwmlp4o" path="res://Scripts/Player/Hitboxes.gd" id="20_u7xgm"]
+[ext_resource type="Script" uid="uid://xq5jxq3n53fy" path="res://Scripts/Player/Attacks/LP.gd" id="21_ocq0e"]
+[ext_resource type="Script" uid="uid://cvp42ovyym1ff" path="res://Scripts/Player/Attacks/RP.gd" id="22_k70sm"]
+[ext_resource type="Script" uid="uid://bysoxxqabif7b" path="res://Scripts/Player/Attacks/LK.gd" id="23_73uii"]
+[ext_resource type="AudioStream" uid="uid://yln8fww8fcs7" path="res://Audio/Player/punch.wav" id="24_g7r2t"]
+[ext_resource type="AudioStream" uid="uid://dlmarqxoc4u8o" path="res://Audio/Player/kick.wav" id="25_x2ley"]
+[ext_resource type="PackedScene" uid="uid://d0360nvb08v21" path="res://Entities/Weapon.tscn" id="26_8qynv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6fhto"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("8_s4s2l")
+}, {
+"duration": 4.0,
+"texture": ExtResource("9_8rw76")
+}, {
+"duration": 7.0,
+"texture": ExtResource("10_4nhu0")
+}],
+"loop": false,
+"name": &"attack1",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("12_hx8w8")
+}, {
+"duration": 6.0,
+"texture": ExtResource("13_478ti")
+}, {
+"duration": 9.0,
+"texture": ExtResource("14_o5x8e")
+}],
+"loop": false,
+"name": &"attack2",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 6.0,
+"texture": ExtResource("16_x6csf")
+}, {
+"duration": 15.0,
+"texture": ExtResource("17_o0pwu")
+}, {
+"duration": 13.0,
+"texture": ExtResource("18_cv7bs")
+}],
+"loop": false,
+"name": &"attack3",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_qrqvp")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("4_hh3xu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_qrqvp")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_6cpw0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_qrqvp")
+}],
+"loop": true,
+"name": &"move",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sr0yt"]
+radius = 19.57
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd6u4"]
+size = Vector2(69, 51)
+
+[node name="Player" type="CharacterBody2D" unique_id=153121857]
+z_index = 1
+texture_filter = 1
+motion_mode = 1
+script = ExtResource("1_dcg4n")
+bulletspeed = 450.0
+firerate = 0.3
+
+[node name="PlayerAnimations" type="AnimatedSprite2D" parent="." unique_id=1741929972]
+rotation = 1.5708
+scale = Vector2(15, 15)
+sprite_frames = SubResource("SpriteFrames_6fhto")
+animation = &"move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1336274023]
+shape = SubResource("CircleShape2D_sr0yt")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=785857714]
+position_smoothing_enabled = true
+
+[node name="State Machine" type="Node" parent="." unique_id=1673622242 node_paths=PackedStringArray("start_state")]
+script = ExtResource("6_lfewg")
+start_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="State Machine" unique_id=720014103 node_paths=PackedStringArray("move_state", "attack_state")]
+script = ExtResource("7_fa3h5")
+move_state = NodePath("../Moving")
+attack_state = NodePath("../Attack")
+animation_name = "idle"
+
+[node name="Moving" type="Node" parent="State Machine" unique_id=1491604955 node_paths=PackedStringArray("idle_state", "attack_state")]
+script = ExtResource("8_o2785")
+idle_state = NodePath("../Idle")
+attack_state = NodePath("../Attack")
+animation_name = "move"
+
+[node name="Attack" type="Node" parent="State Machine" unique_id=1474447971 node_paths=PackedStringArray("idle_state", "move_state", "attack2_state")]
+script = ExtResource("20_bfq4n")
+idle_state = NodePath("../Idle")
+move_state = NodePath("../Moving")
+attack2_state = NodePath("../Attack2")
+animation_name = "attack1"
+
+[node name="Attack2" type="Node" parent="State Machine" unique_id=1025956347 node_paths=PackedStringArray("idle_state", "move_state", "attack3_state")]
+script = ExtResource("18_omeev")
+idle_state = NodePath("../Idle")
+move_state = NodePath("../Moving")
+attack3_state = NodePath("../Attack3")
+animation_name = "attack2"
+
+[node name="Attack3" type="Node" parent="State Machine" unique_id=1004324845 node_paths=PackedStringArray("idle_state", "move_state")]
+script = ExtResource("19_p1g68")
+idle_state = NodePath("../Idle")
+move_state = NodePath("../Moving")
+animation_name = "attack3"
+
+[node name="Hitboxes" type="Area2D" parent="." unique_id=214762545]
+script = ExtResource("20_u7xgm")
+
+[node name="LP" type="CollisionShape2D" parent="Hitboxes" unique_id=2087520493]
+position = Vector2(24.5, -20)
+shape = SubResource("RectangleShape2D_fd6u4")
+disabled = true
+script = ExtResource("21_ocq0e")
+damage = 10
+knockback = 200
+
+[node name="RP" type="CollisionShape2D" parent="Hitboxes" unique_id=256914360]
+position = Vector2(24.5, 20)
+shape = SubResource("RectangleShape2D_fd6u4")
+disabled = true
+script = ExtResource("22_k70sm")
+damage = 20
+knockback = 250
+
+[node name="LK" type="CollisionShape2D" parent="Hitboxes" unique_id=166568486]
+position = Vector2(34.5, 0.5)
+shape = SubResource("RectangleShape2D_fd6u4")
+disabled = true
+script = ExtResource("23_73uii")
+damage = 40
+knockback = 450
+
+[node name="Punch" type="AudioStreamPlayer" parent="." unique_id=1576893271]
+stream = ExtResource("24_g7r2t")
+
+[node name="Kick" type="AudioStreamPlayer" parent="." unique_id=205406263]
+stream = ExtResource("25_x2ley")
+
+[node name="Weapon" parent="." unique_id=62659546 instance=ExtResource("26_8qynv")]
+
+[connection signal="animation_finished" from="PlayerAnimations" to="State Machine/Attack" method="_on_player_animations_animation_finished"]
+[connection signal="animation_finished" from="PlayerAnimations" to="State Machine/Attack2" method="_on_player_animations_animation_finished"]
+[connection signal="animation_finished" from="PlayerAnimations" to="State Machine/Attack3" method="_on_player_animations_animation_finished"]
+[connection signal="body_entered" from="Hitboxes" to="Hitboxes" method="_on_body_entered"]

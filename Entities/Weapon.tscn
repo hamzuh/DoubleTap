@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d0360nvb08v21"]
+
+[ext_resource type="Script" uid="uid://c6itfcxidb1f5" path="res://Scripts/Weapons/weapon.gd" id="1_6b18g"]
+[ext_resource type="Resource" uid="uid://vkl1ec0pkve3" path="res://Scripts/Weapons/Guns/Pistol.tres" id="2_xrmsp"]
+
+[node name="Weapon" type="Node2D" unique_id=62659546]
+script = ExtResource("1_6b18g")
+weapon_type = ExtResource("2_xrmsp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1555478833]
+scale = Vector2(15, 15)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=597323285]

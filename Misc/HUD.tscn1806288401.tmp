@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://ch8hesqmfncmk"]
+
+[ext_resource type="Script" uid="uid://b8ni4hhmkak4l" path="res://Scripts/HUD.gd" id="1_uhgrr"]
+[ext_resource type="FontFile" uid="uid://c4ps1ss3rbhvv" path="res://Fonts/UbuntuSansMono-VariableFont_wght.ttf" id="2_6hjtx"]
+
+[node name="HUD" type="CanvasLayer" unique_id=781150038]
+script = ExtResource("1_uhgrr")
+
+[node name="Money" type="Label" parent="." unique_id=1140382499]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = -91.0
+offset_right = 157.0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_6hjtx")
+theme_override_font_sizes/font_size = 60
+text = "£0"
+
+[node name="Label" type="Label" parent="." unique_id=1430050445]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.8
+offset_left = -350.0
+offset_top = -49.0
+offset_right = 350.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Press X to buy door"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=773563218]
+visible = false
+offset_left = 1160.0
+offset_top = 48.0
+offset_right = 1397.0
+offset_bottom = 171.0
