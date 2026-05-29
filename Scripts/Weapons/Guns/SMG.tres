@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponStat" format=3 uid="uid://dxlqrikk4xf35"]
+
+[ext_resource type="Script" uid="uid://cuw8gyyfc3ugm" path="res://Scripts/Weapons/WeaponStat.gd" id="1_8ujca"]
+[ext_resource type="Texture2D" uid="uid://l2qte2qd7q3b" path="res://Art/Weapons/Pistol/pistol.png" id="2_ubfou"]
+
+[resource]
+script = ExtResource("1_8ujca")
+spread = 0.05
+firerate = 0.1
+reload_speed = 5.0
+damage = 10.0
+knockback = 100.0
+texture = ExtResource("2_ubfou")
+metadata/_custom_type_script = "uid://cuw8gyyfc3ugm"

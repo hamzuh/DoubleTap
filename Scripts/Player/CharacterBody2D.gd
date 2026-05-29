@@ -14,10 +14,7 @@ var direction = Vector2()
 
 # Shooting Variables
 @onready var weapon = $Weapon
-var bulletload = preload("res://Entities/bullet.tscn")
-@export var bulletspeed = 500.0
-@export var firerate = 0.096
-var timer = 0
+#var bulletload = preload("res://Entities/bullet.tscn")
 
 # Buying Variables
 var buyDoor: bool = false
@@ -54,13 +51,13 @@ func rs_look():
 		shotrot = stickrot.normalized()
 		rotation = stickrot.angle()	
 
-func shoot():
-	var bullet = bulletload.instantiate()
-	bullet.position = self.position
-	bullet.speed = bulletspeed
-	bullet.direction = shotrot
-	bullet.shooter = self
-	owner.add_child(bullet)
+#func shoot():
+	#var bullet = bulletload.instantiate()
+	#bullet.position = self.position
+	#bullet.speed = bulletspeed
+	#bullet.direction = shotrot
+	#bullet.shooter = self
+	#owner.add_child(bullet)
 
 func increase_points(inc_points):
 	points += inc_points

@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://yln8fww8fcs7" path="res://Audio/Player/punch.wav" id="24_g7r2t"]
 [ext_resource type="AudioStream" uid="uid://dlmarqxoc4u8o" path="res://Audio/Player/kick.wav" id="25_x2ley"]
 [ext_resource type="PackedScene" uid="uid://d0360nvb08v21" path="res://Entities/Weapon.tscn" id="26_8qynv"]
+[ext_resource type="Resource" uid="uid://dxlqrikk4xf35" path="res://Scripts/Weapons/Guns/SMG.tres" id="27_kksrn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6fhto"]
 animations = [{
@@ -108,8 +109,6 @@ z_index = 1
 texture_filter = 1
 motion_mode = 1
 script = ExtResource("1_dcg4n")
-bulletspeed = 450.0
-firerate = 0.3
 
 [node name="PlayerAnimations" type="AnimatedSprite2D" parent="." unique_id=1741929972]
 rotation = 1.5708
@@ -193,6 +192,7 @@ stream = ExtResource("24_g7r2t")
 stream = ExtResource("25_x2ley")
 
 [node name="Weapon" parent="." unique_id=62659546 instance=ExtResource("26_8qynv")]
+weapon_type = ExtResource("27_kksrn")
 
 [connection signal="animation_finished" from="PlayerAnimations" to="State Machine/Attack" method="_on_player_animations_animation_finished"]
 [connection signal="animation_finished" from="PlayerAnimations" to="State Machine/Attack2" method="_on_player_animations_animation_finished"]
