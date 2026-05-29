@@ -13,6 +13,7 @@ var shotrot = Vector2(1, 0)
 var direction = Vector2()
 
 # Shooting Variables
+@onready var weapon = $Weapon
 var bulletload = preload("res://Entities/bullet.tscn")
 @export var bulletspeed = 500.0
 @export var firerate = 0.096
@@ -40,6 +41,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
 	rs_look()
+	if Input.is_action_pressed("shootaction"):
+		weapon.fire()
 	
 func _process(delta):
 	state_machine.process_frame(delta)

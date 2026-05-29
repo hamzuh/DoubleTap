@@ -11,3 +11,5 @@ weapon_type = ExtResource("2_xrmsp")
 scale = Vector2(15, 15)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=597323285]
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1567687769]
