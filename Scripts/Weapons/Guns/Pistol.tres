@@ -5,9 +5,10 @@
 
 [resource]
 script = ExtResource("1_d3o64")
+spread = 0.05
 firerate = 1.0
 reload_speed = 2.0
 damage = 20.0
-knockback = 10.0
+knockback = 150.0
 texture = ExtResource("2_0ww15")
 metadata/_custom_type_script = "uid://cuw8gyyfc3ugm"

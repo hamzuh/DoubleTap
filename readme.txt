@@ -1,14 +1,19 @@
-DUBBLETAP
-Infinite wave-based twin stick shooter. Kill freaks, buy perks and open the map to reach higher and higher rounds!
+DOUBLE-TAP / DUBBLETAP
+Infinite wave-based twin stick shooter. Kill zombies (robots? aliens? kill humans as an alien?), buy perks and open the map to reach higher and higher rounds!
 
-Consider how to keep player engaged in later rounds once set up. We can go more extreme with effects and destruction
+Consider how to keep player engaged in later rounds once set up. Can go more extreme with effects and destruction 
 in 2D, so allow the player to attain a crazy level of power.
 
 Emphasise the perfect run. One completely independent mode where all is gained or lost in one playthrough.
 
-COWBOY / NINJA / SWORDSMAN / FIGHTER
+Ignore all that you know your heart is really in it for the easter eggs
 
 TO DO:
+	- Gun mechanics
+		- Swapping
+			- Keep track of ammo
+		- Reloading
+			- Display reload bar on HUD, use animation progress to track
 	- Buyable doors
 		- Display buy text when next to door
 		- Button hold to buy door
@@ -78,6 +83,37 @@ TO DO:
 POTENTIAL IDEAS:
 	- Setting
 		- Action Heroes / Worthy Fighters
+		- City Map
+			- New York
+				- Landmarks
+					- The Lot Radio
+					- Mi Sabor Cafe
+					- Chinatown
+					- Koreatown (?)
+					- Roosevelt Island
+						- Gondola like MOTD!!
+					- MOMA
+					- Halal Food Carts
+					- Times Square
+						- Kinokuniya
+				- Portal to London #popcryptreference
+				- COTD but with musicians
+				- Instruments are Wonder Weapons
+			- Manchester
+				- Platt Fields Park
+				- Hobgoblin Music
+				- Victoria Park Mosque
+				- Metrolink like Tranzit!!
+				- Boombox guy is a secret boss
+				- Banh Mi heals HP
+		- Fast Food restaurant
+			- Some guy is stuck in the toilets
+		- Mall (Trafford Centre ripoff)
+			- Dead Rising
+			- Food Court
+			- Cinema section could be like Kino Der Toten but markedly less Nazi paraphernalia
+		- Strangeways prison
+			- Like Alcatraz from MOTD but more insensitive
 	- Characters
 		- COWBOY
 			- Regular fire - Spray 6 shooters by fanning the hammer
@@ -90,7 +126,11 @@ POTENTIAL IDEAS:
 				- Lock on to enemy and take circle strafe stance, you can't move fast, you can roll to dodge
 				- Hold the blade inside the sheath with a button, when the enemy starts to attack only then can you let go to kill them in one swipe
 				- Otherwise you bounce off and leave yourself very wide open
-		- FIGHTER
+		- WRESTLER
+			- booyaka booyaka 619
+			- MASK DE SMITH
+		- Alan Wake
+			- it would be so awesome
 
 CORE TENETS:
 	Skilled movement and evasion, grouping of enemies
@@ -98,19 +138,18 @@ CORE TENETS:
 	Punishing but consistent
 	Quick, uncomplicated, arcadey fun
 	Mystery and exploration
+	I-frame exploitation
 
 INSPIRATIONS:
-	COD Zombies
-	Dead Ops Arcade
+	COD Zombies / Dead Ops Arcade
 	HYPER DEMON / DEVIL DAGGERS
-	Vampire Survivor
+	Vampire Survivor JOKES
 	SAS Zombie Assault
 	Geometry Wars
 	Risk of Rain 2
 	Pocky & Rocky
-	Enter the Gungeon? Kinda
-	CHARACTERS:
-		Spikeout
-		Ninja Gaiden
-		God Hand
-		Devil May Cry
+	Enter the Gungeon? Kinda don't like that game
+	Spikeout
+	Ninja Gaiden
+	God Hand
+	Devil May Cry

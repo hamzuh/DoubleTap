@@ -82,3 +82,7 @@ func _input(event: InputEvent) -> void:
 		if buyDoor and (money >= cost):
 			buy_door.emit(doorNum)
 			spend_money(cost)
+	if Input.is_action_just_released("shootaction"):
+		weapon.releaseTrigger()
+	if Input.is_action_just_pressed("Swap Weapon"):
+		weapon.swap()
