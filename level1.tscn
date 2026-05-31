@@ -70,32 +70,62 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-1001, -1001, -423, -10
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e4cv"]
 size = Vector2(33, 286)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ycv2e"]
+polygon = PackedVector2Array(-213, -152, -213, 18, -189, 18, -189, -152)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hx44q"]
 size = Vector2(287, 29)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_c5gc3"]
+polygon = PackedVector2Array(-855, -220, -855, -198, -596, -198, -596, -220)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8vhr"]
 size = Vector2(26, 264)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6e4cv"]
+polygon = PackedVector2Array(-207, 229, -207, 440, -187, 440, -187, 229)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqrsh"]
 size = Vector2(374, 42)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uuy0h"]
+polygon = PackedVector2Array(347, 481, 347, 516, 624, 516, 624, 481)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3l65w"]
 size = Vector2(334.5, 30)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_52iny"]
+polygon = PackedVector2Array(-29, -758, -29, -736, 292, -736, 292, -758)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjtee"]
 size = Vector2(272, 32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nxqqj"]
+polygon = PackedVector2Array(760, -760, 760, -734, 1000, -734, 1000, -760)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1idop"]
 size = Vector2(268, 30)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7nyxr"]
+polygon = PackedVector2Array(741, -211, 741, -189, 1000, -189, 1000, -211)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_beq0j"]
 size = Vector2(264, 29)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_43lh3"]
+polygon = PackedVector2Array(743, 492, 743, 516, 1000, 516, 1000, 492)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nauge"]
 size = Vector2(35, 305)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5le63"]
+polygon = PackedVector2Array(-213, 499, -213, 796, -191, 796, -191, 499)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycv2e"]
 size = Vector2(208, 24)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pieet"]
+polygon = PackedVector2Array(-398, -222, -398, -202, -198, -202, -198, -222)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c5gc3"]
 size = Vector2(113, 127)
@@ -126,6 +156,27 @@ size = Vector2(145, 195)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xm42n"]
 size = Vector2(148, 91.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n8vhr"]
+polygon = PackedVector2Array(-203, -146, -192, -145, -190, -199, 738, -200, 738, 491, 615, 494, 615, 504, 748, 504, 750, -210, -204, -213)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eqrsh"]
+polygon = PackedVector2Array(354, 722, 353, 494, -191, 495, -191, 432, -202, 432, -202, 492, -675, 494, -675, 506, 343, 506, 343, 725)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3l65w"]
+polygon = PackedVector2Array(-189, 11, -188, 233, -201, 233, -203, 83, -1000, 81, -999, 69, -859, 67, -859, -200, -1003, -201, -1003, -212, -846, -212, -847, 68, -200, 69, -200, 12)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rjtee"]
+polygon = PackedVector2Array(-600, -201, -391, -202, -392, -1002, -405, -1000, -404, -213, -600, -211)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1idop"]
+polygon = PackedVector2Array(-22, -999, -22, -745, -32, -744, -32, -1005)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_beq0j"]
+polygon = PackedVector2Array(286, -750, 286, -739, 764, -739, 764, -750)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nauge"]
+polygon = PackedVector2Array(-208, 795, -199, 795, -199, 1003, -209, 1002)
 
 [node name="Level" type="StaticBody2D" unique_id=2119496087 groups=["World"]]
 script = ExtResource("1_dopym")
@@ -291,6 +342,9 @@ texture = ExtResource("3_hx44q")
 position = Vector2(-198.5, -69)
 shape = SubResource("RectangleShape2D_6e4cv")
 
+[node name="door1occluder" type="LightOccluder2D" parent="Doors/StaticBody2D" unique_id=608952038]
+occluder = SubResource("OccluderPolygon2D_ycv2e")
+
 [node name="StaticBody2D2" type="StaticBody2D" parent="Doors" unique_id=2086514660]
 
 [node name="Door2" type="Sprite2D" parent="Doors/StaticBody2D2" unique_id=353876353]
@@ -299,6 +353,9 @@ texture = ExtResource("4_n8vhr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/StaticBody2D2" unique_id=1190583995]
 position = Vector2(-728.5, -208.5)
 shape = SubResource("RectangleShape2D_hx44q")
+
+[node name="door2occluder" type="LightOccluder2D" parent="Doors/StaticBody2D2" unique_id=446799900]
+occluder = SubResource("OccluderPolygon2D_c5gc3")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Doors" unique_id=96058988]
 
@@ -309,6 +366,9 @@ texture = ExtResource("5_eqrsh")
 position = Vector2(-197, 327)
 shape = SubResource("RectangleShape2D_n8vhr")
 
+[node name="door3occluder" type="LightOccluder2D" parent="Doors/StaticBody2D3" unique_id=2059486298]
+occluder = SubResource("OccluderPolygon2D_6e4cv")
+
 [node name="StaticBody2D4" type="StaticBody2D" parent="Doors" unique_id=604721082]
 
 [node name="Door4" type="Sprite2D" parent="Doors/StaticBody2D4" unique_id=1244556098]
@@ -317,6 +377,9 @@ texture = ExtResource("6_3l65w")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/StaticBody2D4" unique_id=2020405382]
 position = Vector2(482, 499)
 shape = SubResource("RectangleShape2D_eqrsh")
+
+[node name="door4occluder" type="LightOccluder2D" parent="Doors/StaticBody2D4" unique_id=1621987619]
+occluder = SubResource("OccluderPolygon2D_uuy0h")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Doors" unique_id=1765981129]
 
@@ -327,12 +390,18 @@ texture = ExtResource("7_rjtee")
 position = Vector2(132.75, -748)
 shape = SubResource("RectangleShape2D_3l65w")
 
+[node name="door5occluder" type="LightOccluder2D" parent="Doors/StaticBody2D5" unique_id=511525425]
+occluder = SubResource("OccluderPolygon2D_52iny")
+
 [node name="Door6" type="Sprite2D" parent="Doors/StaticBody2D5" unique_id=1215936935]
 texture = ExtResource("8_1idop")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Doors/StaticBody2D5" unique_id=211241907]
 position = Vector2(870, -747)
 shape = SubResource("RectangleShape2D_rjtee")
+
+[node name="door6occluder" type="LightOccluder2D" parent="Doors/StaticBody2D5" unique_id=821191869]
+occluder = SubResource("OccluderPolygon2D_nxqqj")
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Doors" unique_id=1283400433]
 
@@ -343,6 +412,9 @@ texture = ExtResource("9_beq0j")
 position = Vector2(874, -201)
 shape = SubResource("RectangleShape2D_1idop")
 
+[node name="door7occluder" type="LightOccluder2D" parent="Doors/StaticBody2D7" unique_id=340509709]
+occluder = SubResource("OccluderPolygon2D_7nyxr")
+
 [node name="StaticBody2D8" type="StaticBody2D" parent="Doors" unique_id=127230257]
 
 [node name="Door8" type="Sprite2D" parent="Doors/StaticBody2D8" unique_id=1998201932]
@@ -351,6 +423,9 @@ texture = ExtResource("10_nauge")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/StaticBody2D8" unique_id=2114964291]
 position = Vector2(872, 503.5)
 shape = SubResource("RectangleShape2D_beq0j")
+
+[node name="door8occluder" type="LightOccluder2D" parent="Doors/StaticBody2D8" unique_id=439420291]
+occluder = SubResource("OccluderPolygon2D_43lh3")
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Doors" unique_id=1129238423]
 
@@ -361,6 +436,9 @@ texture = ExtResource("11_ycv2e")
 position = Vector2(-202.5, 651.5)
 shape = SubResource("RectangleShape2D_nauge")
 
+[node name="door9occluder" type="LightOccluder2D" parent="Doors/StaticBody2D9" unique_id=1140734237]
+occluder = SubResource("OccluderPolygon2D_5le63")
+
 [node name="StaticBody2D10" type="StaticBody2D" parent="Doors" unique_id=389376344]
 
 [node name="Door10" type="Sprite2D" parent="Doors/StaticBody2D10" unique_id=550086392]
@@ -369,6 +447,9 @@ texture = ExtResource("12_c5gc3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/StaticBody2D10" unique_id=740086249]
 position = Vector2(-300, -212)
 shape = SubResource("RectangleShape2D_ycv2e")
+
+[node name="door10occluder" type="LightOccluder2D" parent="Doors/StaticBody2D10" unique_id=1377774559]
+occluder = SubResource("OccluderPolygon2D_pieet")
 
 [node name="DoorBuyable" type="Area2D" parent="." unique_id=1852761078]
 
@@ -478,6 +559,29 @@ polygon = PackedVector2Array(-27, -1008, -27, -746, 1005, -746, 1004, -1009)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Surprise!" unique_id=2128569668]
 polygon = PackedVector2Array(-396, -211, -401, -1012, -1004, -1002, -1005, -210)
+
+[node name="Occluders" type="Node2D" parent="." unique_id=485288751]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Occluders" unique_id=19952467]
+occluder = SubResource("OccluderPolygon2D_n8vhr")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Occluders" unique_id=818141213]
+occluder = SubResource("OccluderPolygon2D_eqrsh")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Occluders" unique_id=2057646898]
+occluder = SubResource("OccluderPolygon2D_3l65w")
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="Occluders" unique_id=391875466]
+occluder = SubResource("OccluderPolygon2D_rjtee")
+
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="Occluders" unique_id=283465156]
+occluder = SubResource("OccluderPolygon2D_1idop")
+
+[node name="LightOccluder2D6" type="LightOccluder2D" parent="Occluders" unique_id=1321534787]
+occluder = SubResource("OccluderPolygon2D_beq0j")
+
+[node name="LightOccluder2D7" type="LightOccluder2D" parent="Occluders" unique_id=305070264]
+occluder = SubResource("OccluderPolygon2D_nauge")
 
 [connection signal="body_shape_entered" from="DoorBuyable" to="." method="_on_door_buyable_body_shape_entered"]
 [connection signal="body_shape_exited" from="DoorBuyable" to="." method="_on_door_buyable_body_shape_exited"]

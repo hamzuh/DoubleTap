@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_8ujca")
-spread = 0.07
+spread = 0.065
 automatic = true
-firerate = 0.1
+firerate = 0.09
 reload_speed = 5.0
 damage = 10.0
 knockback = 100.0

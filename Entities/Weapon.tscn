@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://d0360nvb08v21"]
 
 [ext_resource type="Script" uid="uid://c6itfcxidb1f5" path="res://Scripts/Weapons/weapon.gd" id="1_6b18g"]
-[ext_resource type="Resource" uid="uid://vkl1ec0pkve3" path="res://Scripts/Weapons/Guns/Pistol.tres" id="2_xrmsp"]
+
+[sub_resource type="Curve" id="Curve_6b18g"]
+_data = [Vector2(0, 0.54706186), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_6b18g"]
+offsets = PackedFloat32Array(0, 0.176, 0.984)
+colors = PackedColorArray(1, 0.4862745, 0, 0, 0.9319993, 0.51266694, 2.3102762e-06, 1, 0.9999998, 0.8988454, 0.44170848, 1)
 
 [node name="Weapon" type="Node2D" unique_id=62659546]
 script = ExtResource("1_6b18g")
-weapon_type = ExtResource("2_xrmsp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1555478833]
 scale = Vector2(15, 15)
@@ -13,3 +19,12 @@ scale = Vector2(15, 15)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=597323285]
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1567687769]
+
+[node name="Line2D" type="Line2D" parent="." unique_id=2103399184]
+show_behind_parent = true
+points = PackedVector2Array(0, 0, 0, 50)
+closed = true
+width_curve = SubResource("Curve_6b18g")
+gradient = SubResource("Gradient_6b18g")
+begin_cap_mode = 2
+end_cap_mode = 2

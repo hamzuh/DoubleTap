@@ -1,12 +1,10 @@
 DOUBLE-TAP / DUBBLETAP
-Infinite wave-based twin stick shooter. Kill zombies (robots? aliens? kill humans as an alien?), buy perks and open the map to reach higher and higher rounds!
+Infinite wave-based twin stick shooter. Kill zombies, buy perks and open the map to reach higher and higher rounds!
 
 Consider how to keep player engaged in later rounds once set up. Can go more extreme with effects and destruction 
 in 2D, so allow the player to attain a crazy level of power.
 
 Emphasise the perfect run. One completely independent mode where all is gained or lost in one playthrough.
-
-Ignore all that you know your heart is really in it for the easter eggs
 
 TO DO:
 	- Gun mechanics
@@ -103,7 +101,7 @@ POTENTIAL IDEAS:
 				- Platt Fields Park
 				- Hobgoblin Music
 				- Victoria Park Mosque
-				- Metrolink like Tranzit!!
+				- Metrolink like Tranzit
 				- Boombox guy is a secret boss
 				- Banh Mi heals HP
 		- Fast Food restaurant
@@ -128,9 +126,9 @@ POTENTIAL IDEAS:
 				- Otherwise you bounce off and leave yourself very wide open
 		- WRESTLER
 			- booyaka booyaka 619
-			- MASK DE SMITH
+			- Mask De Smith / Armor King
 		- Alan Wake
-			- it would be so awesome
+			- Flashlight enemies to weaken them
 
 CORE TENETS:
 	Skilled movement and evasion, grouping of enemies

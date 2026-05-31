@@ -39,6 +39,7 @@ func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
 	rs_look()
 	if Input.is_action_pressed("shootaction"):
+		speed = 200
 		weapon.fire()
 	
 func _process(delta):
@@ -84,5 +85,6 @@ func _input(event: InputEvent) -> void:
 			spend_money(cost)
 	if Input.is_action_just_released("shootaction"):
 		weapon.releaseTrigger()
+		speed = 300
 	if Input.is_action_just_pressed("Swap Weapon"):
 		weapon.swap()

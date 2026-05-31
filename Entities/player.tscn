@@ -26,6 +26,8 @@
 [ext_resource type="AudioStream" uid="uid://yln8fww8fcs7" path="res://Audio/Player/punch.wav" id="24_g7r2t"]
 [ext_resource type="AudioStream" uid="uid://dlmarqxoc4u8o" path="res://Audio/Player/kick.wav" id="25_x2ley"]
 [ext_resource type="PackedScene" uid="uid://d0360nvb08v21" path="res://Entities/Weapon.tscn" id="26_8qynv"]
+[ext_resource type="Texture2D" uid="uid://c46oujf05mf6" path="res://Art/neutrallight.png" id="27_kksrn"]
+[ext_resource type="Texture2D" uid="uid://dbfo3ovgk4rx" path="res://Art/torch_light.png" id="28_jcafi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6fhto"]
 animations = [{
@@ -104,7 +106,7 @@ radius = 19.57
 size = Vector2(69, 51)
 
 [node name="Player" type="CharacterBody2D" unique_id=153121857]
-z_index = 1
+z_index = 2
 texture_filter = 1
 motion_mode = 1
 script = ExtResource("1_dcg4n")
@@ -191,6 +193,15 @@ stream = ExtResource("24_g7r2t")
 stream = ExtResource("25_x2ley")
 
 [node name="Weapon" parent="." unique_id=62659546 instance=ExtResource("26_8qynv")]
+
+[node name="AuraLight" type="PointLight2D" parent="." unique_id=771704844]
+shadow_enabled = true
+texture = ExtResource("27_kksrn")
+
+[node name="Flashlight" type="PointLight2D" parent="." unique_id=902210503]
+shadow_enabled = true
+texture = ExtResource("28_jcafi")
+offset = Vector2(300, 0)
 
 [connection signal="animation_finished" from="PlayerAnimations" to="State Machine/Attack" method="_on_player_animations_animation_finished"]
 [connection signal="animation_finished" from="PlayerAnimations" to="State Machine/Attack2" method="_on_player_animations_animation_finished"]

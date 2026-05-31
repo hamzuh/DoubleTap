@@ -22,6 +22,9 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=737703000]
+color = Color(0.0012582822, 0.08109655, 0.44087213, 1)
+
 [connection signal="round_end" from="." to="." method="_on_round_end"]
 [connection signal="round_start" from="." to="HUD" method="_on_main_round_start"]
 [connection signal="buy_door" from="Player" to="Level" method="_on_player_buy_door"]
