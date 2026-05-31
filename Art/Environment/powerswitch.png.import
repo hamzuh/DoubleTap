@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djbwwt5f5lncc"
-path="res://.godot/imported/spawnerlocked.png-04cf821127e6b3fa5cfa55950c047d8b.ctex"
+uid="uid://blrfbk1g7j8k8"
+path="res://.godot/imported/powerswitch.png-320234cb982c02140cd3fc39181c8584.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spawners/spawnerlocked.png"
-dest_files=["res://.godot/imported/spawnerlocked.png-04cf821127e6b3fa5cfa55950c047d8b.ctex"]
+source_file="res://Art/Environment/powerswitch.png"
+dest_files=["res://.godot/imported/powerswitch.png-320234cb982c02140cd3fc39181c8584.ctex"]
 
 [params]
 

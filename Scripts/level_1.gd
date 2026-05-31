@@ -8,11 +8,13 @@ var current_room = "Spawn Room"
 signal doorbuymessage(openOrClose, door, price)
 signal roomchange(roomname)
 
-func _input(event: InputEvent):
-	if Input.is_action_just_pressed("ui_accept"):
-		$NavigationRegion2D/NavigationObstacle2D.affect_navigation_mesh = !$NavigationRegion2D/NavigationObstacle2D.affect_navigation_mesh
-		$NavigationRegion2D.bake_navigation_polygon()
-		print("BAKING...")
+signal powermessage(openOrClose)
+
+#func _input(event: InputEvent):
+	#if Input.is_action_just_pressed("ui_accept"):
+		#$NavigationRegion2D/NavigationObstacle2D.affect_navigation_mesh = !$NavigationRegion2D/NavigationObstacle2D.affect_navigation_mesh
+		#$NavigationRegion2D.bake_navigation_polygon()
+		#print("BAKING...")
 
 func _on_door_buyable_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body == Player:
@@ -162,3 +164,14 @@ func _on_surprise_body_entered(body: Node2D) -> void:
 		current_room = "Surprise!"
 		suitable_spawners = [$Spawners/FirstCorridor, $Spawners/OutdoorCubby]
 		roomchange.emit(current_room)
+
+func _on_power_switch_body_entered(body: Node2D) -> void:
+	if body == Player:
+		powermessage.emit(true)
+
+func _on_power_switch_body_exited(body: Node2D) -> void:
+	if body == Player:
+		powermessage.emit(false)
+
+func _on_player_power_on() -> void:
+	$"Power Switch".monitoring = false

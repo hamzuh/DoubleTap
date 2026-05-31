@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c46oujf05mf6"
-path="res://.godot/imported/neutrallight.png-ffaa52a8f1a6d7e24468adf227dc7f2f.ctex"
+uid="uid://dbfo3ovgk4rx"
+path="res://.godot/imported/torch_light.png-8011b0c40161c0afe90cc06dac1408ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/neutrallight.png"
-dest_files=["res://.godot/imported/neutrallight.png-ffaa52a8f1a6d7e24468adf227dc7f2f.ctex"]
+source_file="res://Art/Light Textures/torch_light.png"
+dest_files=["res://.godot/imported/torch_light.png-8011b0c40161c0afe90cc06dac1408ef.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buna2vu4q72s0"
-path="res://.godot/imported/d5.png-cd1481e493e698f269b3601729e6eac4.ctex"
+uid="uid://c46oujf05mf6"
+path="res://.godot/imported/neutrallight.png-d18d39dd0692a5bbbd5a2e2372a7f882.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/doors/d5.png"
-dest_files=["res://.godot/imported/d5.png-cd1481e493e698f269b3601729e6eac4.ctex"]
+source_file="res://Art/Light Textures/neutrallight.png"
+dest_files=["res://.godot/imported/neutrallight.png-d18d39dd0692a5bbbd5a2e2372a7f882.ctex"]
 
 [params]
 

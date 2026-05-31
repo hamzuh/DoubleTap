@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db45asmwuo3bu"
-path="res://.godot/imported/bullet.png-bc73bacce7c99726b792e68f7bd63464.ctex"
+uid="uid://dh8sfds3pfnwx"
+path="res://.godot/imported/spawneropen.png-6ba22ee7b83e1682f2ce08bef7ce5cbf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/bullet.png"
-dest_files=["res://.godot/imported/bullet.png-bc73bacce7c99726b792e68f7bd63464.ctex"]
+source_file="res://Art/Environment/Spawners/spawneropen.png"
+dest_files=["res://.godot/imported/spawneropen.png-6ba22ee7b83e1682f2ce08bef7ce5cbf.ctex"]
 
 [params]
 

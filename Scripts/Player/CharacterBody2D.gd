@@ -21,9 +21,13 @@ var buyDoor: bool = false
 var doorNum: int = 0
 var cost: int = 0
 
+# Switch Variable
+var powerSwitch: bool = false
+
 # Signals
 signal money_changed()
 signal buy_door(doorNum)
+signal powerOn()
 
 # State Machines Variables
 @onready var state_machine: Node = $"State Machine"
@@ -83,8 +87,18 @@ func _input(event: InputEvent) -> void:
 		if buyDoor and (money >= cost):
 			buy_door.emit(doorNum)
 			spend_money(cost)
+		if powerSwitch:
+			powerOn.emit()
+			$AuraLight.visible = false
+			$Flashlight.visible = false
 	if Input.is_action_just_released("shootaction"):
 		weapon.releaseTrigger()
 		speed = 300
 	if Input.is_action_just_pressed("Swap Weapon"):
 		weapon.swap()
+
+func _on_level_powermessage(openOrClose: Variant) -> void:
+	if openOrClose:
+		powerSwitch = true
+	else:
+		powerSwitch = false

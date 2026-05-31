@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc26its6bn1lp"
-path="res://.godot/imported/spawnerlocked3.png-7b4e92eca462e3daadb86815cc21ef6c.ctex"
+uid="uid://c1xbgnxm7sxgt"
+path="res://.godot/imported/level.png-00b91325919b2b80824154667cba9674.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spawners/spawnerlocked3.png"
-dest_files=["res://.godot/imported/spawnerlocked3.png-7b4e92eca462e3daadb86815cc21ef6c.ctex"]
+source_file="res://Art/Environment/level.png"
+dest_files=["res://.godot/imported/level.png-00b91325919b2b80824154667cba9674.ctex"]
 
 [params]
 

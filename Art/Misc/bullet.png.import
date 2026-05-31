@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1dtc54ctl6nw"
-path="res://.godot/imported/d10.png-4ddabe6b20f4eb8434b0faf33041c00e.ctex"
+uid="uid://db45asmwuo3bu"
+path="res://.godot/imported/bullet.png-f6515c670f6696ece63b1e93e51c1877.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/doors/d10.png"
-dest_files=["res://.godot/imported/d10.png-4ddabe6b20f4eb8434b0faf33041c00e.ctex"]
+source_file="res://Art/Misc/bullet.png"
+dest_files=["res://.godot/imported/bullet.png-f6515c670f6696ece63b1e93e51c1877.ctex"]
 
 [params]
 

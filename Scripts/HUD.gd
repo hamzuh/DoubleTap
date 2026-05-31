@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var doorDebug = $"Door Debug"
 @onready var roundCounter = $"Round Counter"
 @onready var roomDebug = $"Room Debug"
+@onready var powerMessage = $"Power Prompt"
 
 func _on_player_money_changed(money):
 	moneyLabel.text = ("£" + str(money))
@@ -24,3 +25,10 @@ func _on_level_roomchange(roomname: Variant) -> void:
 
 func _on_main_round_start(roundCount: Variant) -> void:
 	roundCounter.text = "Round " + str(roundCount)
+
+func _on_level_powermessage(openOrClose: Variant) -> void:
+	if openOrClose:
+		powerMessage.text = ("Press X to switch the power on")
+		powerMessage.visible = true
+	else:
+		powerMessage.visible = false

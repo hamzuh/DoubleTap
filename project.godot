@@ -18,7 +18,7 @@ config/name="Double Tap"
 run/main_scene="res://basescene.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=60
-config/icon="res://Art/icon.png"
+config/icon="res://Art/Misc/icon.png"
 
 [display]
 
