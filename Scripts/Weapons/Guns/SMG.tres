@@ -1,7 +1,10 @@
 [gd_resource type="Resource" script_class="WeaponStat" format=3 uid="uid://dxlqrikk4xf35"]
 
+[ext_resource type="AudioStream" uid="uid://dwdu2p0tr3kg7" path="res://Audio/Weapons/SMG/mac10_01.wav" id="1_8pjg1"]
 [ext_resource type="Script" uid="uid://cuw8gyyfc3ugm" path="res://Scripts/Weapons/WeaponStat.gd" id="1_8ujca"]
+[ext_resource type="AudioStream" uid="uid://85gl7ncgqta1" path="res://Audio/Weapons/SMG/mac10_02.wav" id="2_2i05l"]
 [ext_resource type="Texture2D" uid="uid://l2qte2qd7q3b" path="res://Art/Weapons/Pistol/pistol.png" id="2_ubfou"]
+[ext_resource type="AudioStream" uid="uid://ot7ssxudrpas" path="res://Audio/Weapons/SMG/mac10_03.wav" id="3_e2eum"]
 
 [resource]
 script = ExtResource("1_8ujca")
@@ -12,4 +15,5 @@ reload_speed = 5.0
 damage = 10.0
 knockback = 100.0
 texture = ExtResource("2_ubfou")
+fireSFX = Array[AudioStream]([ExtResource("1_8pjg1"), ExtResource("2_2i05l"), ExtResource("3_e2eum")])
 metadata/_custom_type_script = "uid://cuw8gyyfc3ugm"

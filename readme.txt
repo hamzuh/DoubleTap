@@ -7,8 +7,20 @@ in 2D, so allow the player to attain a crazy level of power.
 Emphasise the perfect run. One completely independent mode where all is gained or lost in one playthrough.
 
 TO DO:
+	- Powerups
+		- Double Points
+		- Instakill
+		- Max Ammo
+		- Nuke
+		- Fire Sale
+	- VFX
+		- Muzzle Flash
+		- +Points on HUD counter when earning
+	- SFX
+		- Array of sounds for gunshot variety
 	- Gun mechanics
 		- Swapping
+			- Equipping
 			- Keep track of ammo
 		- Reloading
 			- Display reload bar on HUD, use animation progress to track

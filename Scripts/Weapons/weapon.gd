@@ -1,5 +1,7 @@
 class_name Weapon extends Node2D
 
+@onready var audioPlayer = $AudioStreamPlayer2D
+
 @onready var loadout: Array = [load("res://Scripts/Weapons/Guns/Pistol.tres"), load("res://Scripts/Weapons/Guns/SMG.tres")]
 @onready var currentWeapon = 0
 @onready var weapon_type: WeaponStat = loadout[currentWeapon]
@@ -9,6 +11,7 @@ var stats: WeaponStat
 @onready var ray: RayCast2D = $RayCast2D
 
 @onready var tracer: Line2D = $Line2D
+@onready var muzzleFlash = $Muzzle
 var tracerCooldown: float
 
 var spread: float
@@ -18,6 +21,8 @@ var reload_speed: float
 var damage: float
 var knockback: float
 var cooldown: float = 0
+var sfx: Array[AudioStream]
+
 var triggerHeld: bool = false
 
 func _ready() -> void:
@@ -29,8 +34,10 @@ func _ready() -> void:
 	spread = stats.spread
 	automatic = stats.automatic
 	sprite.texture = stats.texture
+	sfx = stats.fireSFX
 	
 	tracer.visible = false
+	muzzleFlash.visible = false
 	
 	ray.target_position = Vector2(1000, 0)
 
@@ -41,9 +48,12 @@ func _physics_process(delta: float) -> void:
 		tracerCooldown -= delta
 	else:
 		tracer.visible = false
+		muzzleFlash.visible = false
 
 func fire():
 	if canFire():
+		audioPlayer.stream = sfx.pick_random()
+		audioPlayer.play()
 		ray.target_position = Vector2(1000, 0).rotated(randf_range(-PI/2, PI/2) * spread)
 		if ray.is_colliding():
 			if ray.get_collider().is_in_group("Enemy"):
@@ -53,6 +63,7 @@ func fire():
 			tracer.set_point_position(1, to_local(ray.get_collision_point()))
 		else:
 			tracer.set_point_position(1, ray.target_position)
+		muzzleFlash.visible = true
 		tracer.visible = true
 		tracerCooldown = 0.02
 		cooldown = firerate
@@ -82,3 +93,4 @@ func swap():
 	spread = stats.spread
 	automatic = stats.automatic
 	sprite.texture = stats.texture
+	sfx = stats.fireSFX

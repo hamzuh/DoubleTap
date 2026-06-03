@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bccv1ywb5dh7s" path="res://Entities/player.tscn" id="1_3dglx"]
 [ext_resource type="Script" uid="uid://c0tbq3yiqqsk5" path="res://Scripts/basescene.gd" id="1_jgno3"]
 [ext_resource type="PackedScene" uid="uid://2vtemamcqq6h" path="res://level1.tscn" id="3_j7xdm"]
+[ext_resource type="AudioStream" uid="uid://bxwihds4w2l86" path="res://Audio/Music/wesker.mp3" id="5_nl2ee"]
 [ext_resource type="PackedScene" uid="uid://ch8hesqmfncmk" path="res://Misc/HUD.tscn" id="5_nut14"]
 
 [node name="Main" type="Node" unique_id=612323886]
@@ -23,7 +24,12 @@ one_shot = true
 autostart = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=737703000]
-color = Color(0.0012582822, 0.08109655, 0.44087213, 1)
+color = Color(0.056745008, 3.102027e-05, 0.2217564, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1816864950]
+stream = ExtResource("5_nl2ee")
+volume_db = -3.424
+autoplay = true
 
 [connection signal="round_end" from="." to="." method="_on_round_end"]
 [connection signal="round_start" from="." to="HUD" method="_on_main_round_start"]

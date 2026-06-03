@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var Level = get_parent().get_Level()
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var sprite = $Sprite2D
+@onready var occluder = $LightOccluder2D
 @onready var navtimer = $Timer
 
 # Base stats
@@ -56,6 +57,7 @@ func _physics_process(delta):
 		return
 	#sprite.rotation = velocity.angle()
 	sprite.rotation = lerp_angle(sprite.rotation, velocity.angle(), 0.08)
+	occluder.rotation = sprite.rotation
 	
 	if position.distance_to(Player.position) >= 1000:
 		navtimer.wait_time = 0.5

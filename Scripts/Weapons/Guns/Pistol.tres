@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="WeaponStat" format=3 uid="uid://vkl1ec0pkve3"]
 
 [ext_resource type="Script" uid="uid://cuw8gyyfc3ugm" path="res://Scripts/Weapons/WeaponStat.gd" id="1_d3o64"]
+[ext_resource type="AudioStream" uid="uid://c1n4thfdr214k" path="res://Audio/Weapons/Pistol/pistol_fire1.wav" id="1_d8tw1"]
 [ext_resource type="Texture2D" uid="uid://l2qte2qd7q3b" path="res://Art/Weapons/Pistol/pistol.png" id="2_0ww15"]
 
 [resource]
@@ -11,4 +12,5 @@ reload_speed = 2.0
 damage = 25.0
 knockback = 150.0
 texture = ExtResource("2_0ww15")
+fireSFX = Array[AudioStream]([ExtResource("1_d8tw1")])
 metadata/_custom_type_script = "uid://cuw8gyyfc3ugm"

@@ -200,6 +200,7 @@ texture = ExtResource("27_kksrn")
 texture_scale = 1.2
 
 [node name="Flashlight" type="PointLight2D" parent="." unique_id=902210503]
+energy = 0.67
 shadow_enabled = true
 texture = ExtResource("28_jcafi")
 offset = Vector2(380, -6)

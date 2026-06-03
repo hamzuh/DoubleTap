@@ -8,3 +8,4 @@ class_name WeaponStat extends Resource
 @export var knockback: float
 
 @export var texture: Texture2D
+@export var fireSFX: Array[AudioStream]
