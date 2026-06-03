@@ -33,6 +33,7 @@ autoplay = true
 
 [connection signal="round_end" from="." to="." method="_on_round_end"]
 [connection signal="round_start" from="." to="HUD" method="_on_main_round_start"]
+[connection signal="ammo_changed" from="Player" to="HUD" method="_on_player_ammo_changed"]
 [connection signal="buy_door" from="Player" to="Level" method="_on_player_buy_door"]
 [connection signal="money_changed" from="Player" to="HUD" method="_on_player_money_changed"]
 [connection signal="powerOn" from="Player" to="." method="_on_player_power_on"]

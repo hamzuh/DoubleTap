@@ -14,6 +14,7 @@ var stats: WeaponStat
 @onready var muzzleFlash = $Muzzle
 var tracerCooldown: float
 
+var weaponName: String
 var spread: float
 var automatic: bool
 var firerate: float
@@ -25,9 +26,18 @@ var sfx: Array[AudioStream]
 
 var triggerHeld: bool = false
 
+# Ammo tracking variables
+var ammo_dict = {}
+var max_ammo: int
+var mag_size: int
+
 func _ready() -> void:
 	stats = weapon_type.duplicate()
 	
+	for weapon in loadout:
+		ammo_dict[weapon.weaponName] = [weapon.mag_size, weapon.max_ammo - weapon.mag_size]
+	
+	weaponName = stats.weaponName
 	firerate = stats.firerate
 	damage = stats.damage
 	knockback = stats.knockback
@@ -36,10 +46,14 @@ func _ready() -> void:
 	sprite.texture = stats.texture
 	sfx = stats.fireSFX
 	
+	max_ammo = stats.max_ammo
+	mag_size = stats.mag_size
+	
 	tracer.visible = false
 	muzzleFlash.visible = false
 	
 	ray.target_position = Vector2(1000, 0)
+	get_parent().ammo_changed.emit(ammo_dict[weaponName][0], ammo_dict[weaponName][1])
 
 func _physics_process(delta: float) -> void:
 	if cooldown > 0:
@@ -52,14 +66,14 @@ func _physics_process(delta: float) -> void:
 
 func fire():
 	if canFire():
+		ammo_dict[weaponName][0] -= 1
+		get_parent().ammo_changed.emit(ammo_dict[weaponName][0], ammo_dict[weaponName][1])
 		audioPlayer.stream = sfx.pick_random()
 		audioPlayer.play()
 		ray.target_position = Vector2(1000, 0).rotated(randf_range(-PI/2, PI/2) * spread)
 		if ray.is_colliding():
 			if ray.get_collider().is_in_group("Enemy"):
 				ray.get_collider().hit(get_parent(), damage, knockback)
-				#print("BLAM!")
-				#print(ray.get_collider())
 			tracer.set_point_position(1, to_local(ray.get_collision_point()))
 		else:
 			tracer.set_point_position(1, ray.target_position)
@@ -71,10 +85,11 @@ func fire():
 		triggerHeld = true
 
 func canFire():
-	if automatic:
-		return (cooldown <= 0)
-	else:
-		return ((not triggerHeld) and cooldown <= 0)
+	if ammo_dict[weaponName][0] > 0:
+		if automatic:
+			return (cooldown <= 0)
+		else:
+			return ((not triggerHeld) and cooldown <= 0)
 		
 func releaseTrigger():
 	if not automatic:
@@ -87,6 +102,7 @@ func swap():
 	weapon_type = loadout[currentWeapon]
 	stats = weapon_type.duplicate()
 	
+	weaponName = stats.weaponName
 	firerate = stats.firerate
 	damage = stats.damage
 	knockback = stats.knockback
@@ -94,3 +110,17 @@ func swap():
 	automatic = stats.automatic
 	sprite.texture = stats.texture
 	sfx = stats.fireSFX
+	
+	max_ammo = stats.max_ammo
+	mag_size = stats.mag_size
+	
+	get_parent().ammo_changed.emit(ammo_dict[weaponName][0], ammo_dict[weaponName][1])
+
+func reload():
+	if (ammo_dict[weaponName][0] + ammo_dict[weaponName][1]) <= mag_size:
+		ammo_dict[weaponName][0] += ammo_dict[weaponName][1]
+		ammo_dict[weaponName][1] = 0
+	else:
+		ammo_dict[weaponName][1] = ammo_dict[weaponName][1] + ammo_dict[weaponName][0] - mag_size
+		ammo_dict[weaponName][0] = mag_size
+	get_parent().ammo_changed.emit(ammo_dict[weaponName][0], ammo_dict[weaponName][1])

@@ -24,6 +24,7 @@ TO DO:
 			- Keep track of ammo
 		- Reloading
 			- Display reload bar on HUD, use animation progress to track
+			- Timer for walk slowdown on shooting
 	- Buyable doors
 		- Display buy text when next to door
 		- Button hold to buy door

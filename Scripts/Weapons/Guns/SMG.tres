@@ -8,10 +8,13 @@
 
 [resource]
 script = ExtResource("1_8ujca")
+weaponName = "SMG"
 spread = 0.065
 automatic = true
 firerate = 0.09
 reload_speed = 5.0
+max_ammo = 300
+mag_size = 30
 damage = 10.0
 knockback = 100.0
 texture = ExtResource("2_ubfou")

@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var moneyLabel = $Money
+@onready var ammoLabel = $Ammo
 @onready var buyPrompt = $"Buy Prompt"
 @onready var doorDebug = $"Door Debug"
 @onready var roundCounter = $"Round Counter"
@@ -32,3 +33,8 @@ func _on_level_powermessage(openOrClose: Variant) -> void:
 		powerMessage.visible = true
 	else:
 		powerMessage.visible = false
+
+func _on_player_ammo_changed(current_ammo: Variant, reserve_ammo: Variant) -> void:
+	if not self.is_node_ready():
+		await self.ready
+	ammoLabel.text = str(current_ammo) + " / " + str(reserve_ammo)

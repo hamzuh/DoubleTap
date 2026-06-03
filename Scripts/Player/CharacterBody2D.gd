@@ -26,6 +26,7 @@ var powerSwitch: bool = false
 
 # Signals
 signal money_changed()
+signal ammo_changed(current_ammo, reserve_ammo)
 signal buy_door(doorNum)
 signal powerOn()
 
@@ -96,6 +97,8 @@ func _input(event: InputEvent) -> void:
 		speed = 300
 	if Input.is_action_just_pressed("Swap Weapon"):
 		weapon.swap()
+	if Input.is_action_just_pressed("Reload"):
+		weapon.reload()
 
 func _on_level_powermessage(openOrClose: Variant) -> void:
 	if openOrClose:

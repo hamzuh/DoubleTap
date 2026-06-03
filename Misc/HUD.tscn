@@ -19,6 +19,19 @@ theme_override_fonts/font = ExtResource("2_6hjtx")
 theme_override_font_sizes/font_size = 60
 text = "£0"
 
+[node name="Ammo" type="Label" parent="." unique_id=57306722]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = -178.0
+offset_right = 323.0
+offset_bottom = -87.0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_6hjtx")
+theme_override_font_sizes/font_size = 60
+
 [node name="Buy Prompt" type="Label" parent="." unique_id=1430050445]
 visible = false
 anchors_preset = -1
