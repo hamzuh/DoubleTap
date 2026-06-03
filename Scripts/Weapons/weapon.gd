@@ -117,7 +117,9 @@ func swap():
 	get_parent().ammo_changed.emit(ammo_dict[weaponName][0], ammo_dict[weaponName][1])
 
 func reload():
-	if (ammo_dict[weaponName][0] + ammo_dict[weaponName][1]) <= mag_size:
+	if ammo_dict[weaponName][1] == 0:
+		return
+	elif (ammo_dict[weaponName][0] + ammo_dict[weaponName][1]) <= mag_size:
 		ammo_dict[weaponName][0] += ammo_dict[weaponName][1]
 		ammo_dict[weaponName][1] = 0
 	else:

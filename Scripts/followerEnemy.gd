@@ -9,7 +9,9 @@ extends CharacterBody2D
 
 # Base stats
 var speed: int = 100
+#var speed: float = randf_range(97, 100)
 var health: int = 100
+var variation: Vector2 = Vector2(randf_range(0, 100), 0).rotated(randf_range(0, 2*PI))
 
 # Knockback variables
 var knock: bool = false
@@ -42,7 +44,7 @@ func die(killer):
 
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
-	set_movement_target(Player.position)
+	set_movement_target(Player.position + variation)
 
 func set_movement_target(movement_target: Vector2):
 	navigation_agent.set_target_position(movement_target)
@@ -63,17 +65,22 @@ func _physics_process(delta):
 		navtimer.wait_time = 0.5
 	elif position.distance_to(Player.position) >= 500:
 		navtimer.wait_time = 0.25
-	elif position.distance_to(Player.position) >= 200:
+	elif position.distance_to(Player.position) >= 150:
 		navtimer.wait_time = 0.15
+	# If the enemy is closer than 200 units to the player...
 	else:
+		# Shoot a ray from the enemy to the player...
 		var space_state = get_world_2d().direct_space_state
 		var query = PhysicsRayQueryParameters2D.create(global_position, Player.position)
 		query.exclude = [self, Player]
 		var result = space_state.intersect_ray(query)
+		# If the ray detects no wall in the way...
 		if !(result.get("collider") == Level):
+			# Move straight towards the player
 			velocity = position.direction_to(Player.position) * speed
 			move_and_slide()
 			return
+	# If the enemy is super close / in swiping range they should attempt an attack
 	
 	# Do not query when the map has never synchronized and is empty.
 	if NavigationServer2D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
@@ -93,4 +100,4 @@ func _on_velocity_computed(safe_velocity: Vector2):
 	move_and_slide()
 	
 func _on_timer_timeout() -> void:
-	set_movement_target(Player.position)
+	set_movement_target(Player.position + variation)
