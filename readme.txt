@@ -7,6 +7,8 @@ in 2D, so allow the player to attain a crazy level of power.
 Emphasise the perfect run. One completely independent mode where all is gained or lost in one playthrough.
 
 TO DO:
+	- Fix enemy following variation on player position
+		- If the varied position is through a wall the enemy will go the wrong way
 	- Powerups
 		- Double Points
 		- Instakill

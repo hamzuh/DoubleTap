@@ -6,7 +6,7 @@ extends Node
 #var enemy = preload("res://Entities/followerenemy.tscn")
 # Max amount of enemies allowed on screen at once
 # Figure out how to hold spawning until there's space
-var max_enemies: int = 50
+var max_enemies: int = 40
 # Current round, increase zombie health / speed / amount on the map accordingly
 var round: int = 0
 # Enemies planned for this round
@@ -35,8 +35,8 @@ func get_current_enemy_count():
 
 func _on_enemy_enemy_dead(enemy_position) -> void:
 	# Random chance to spawn powerup
-	var spawn_chance = randi_range(0, 5)
-	if spawn_chance == 5:
+	var spawn_chance = randi_range(0, 7)
+	if spawn_chance == 7:
 		spawn_powerup(enemy_position)
 	await get_tree().process_frame
 	if enemies_to_spawn <= 0 and get_current_enemy_count() <= 0:
@@ -62,7 +62,7 @@ func _on_round_timer_timeout() -> void:
 	round += 1
 	if round == 3:
 		spawnTimer.wait_time = 1
-	enemies_to_spawn = 5 + (round * 2)
+	enemies_to_spawn = 5 + (round * 3)
 	round_start.emit(round)
 	spawnTimer.start()
 
