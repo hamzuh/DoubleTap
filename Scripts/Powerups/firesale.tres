@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PowerupStat" format=3 uid="uid://hkr68sox6xl7"]
+
+[ext_resource type="Texture2D" uid="uid://byg4m6ka6fw14" path="res://Art/Powerups/firesale.png" id="1_00dsw"]
+[ext_resource type="Script" uid="uid://b0d0v0cs1n4gd" path="res://Scripts/Powerups/powerupStat.gd" id="2_00dsw"]
+
+[resource]
+script = ExtResource("2_00dsw")
+powerup_name = "Fire Sale"
+icon = ExtResource("1_00dsw")
+metadata/_custom_type_script = "uid://b0d0v0cs1n4gd"

@@ -105,7 +105,7 @@ radius = 19.57
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fd6u4"]
 size = Vector2(69, 51)
 
-[node name="Player" type="CharacterBody2D" unique_id=153121857]
+[node name="Player" type="CharacterBody2D" unique_id=153121857 groups=["Player"]]
 z_index = 2
 texture_filter = 1
 motion_mode = 1

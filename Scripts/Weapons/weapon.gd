@@ -73,7 +73,7 @@ func fire():
 		ray.target_position = Vector2(1000, 0).rotated(randf_range(-PI/2, PI/2) * spread)
 		if ray.is_colliding():
 			if ray.get_collider().is_in_group("Enemy"):
-				ray.get_collider().hit(get_parent(), damage, knockback)
+				ray.get_collider().hit(get_parent(), damage, knockback, get_parent().instakill)
 			tracer.set_point_position(1, to_local(ray.get_collision_point()))
 		else:
 			tracer.set_point_position(1, ray.target_position)
@@ -125,4 +125,9 @@ func reload():
 	else:
 		ammo_dict[weaponName][1] = ammo_dict[weaponName][1] + ammo_dict[weaponName][0] - mag_size
 		ammo_dict[weaponName][0] = mag_size
+	get_parent().ammo_changed.emit(ammo_dict[weaponName][0], ammo_dict[weaponName][1])
+
+func max_ammo_powerup():
+	for weapon in loadout:
+		ammo_dict[weapon.weaponName] = [weapon.mag_size, weapon.max_ammo - weapon.mag_size]
 	get_parent().ammo_changed.emit(ammo_dict[weaponName][0], ammo_dict[weaponName][1])

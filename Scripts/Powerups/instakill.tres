@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PowerupStat" format=3 uid="uid://iydmqekave7r"]
+
+[ext_resource type="Texture2D" uid="uid://ct4lqi2i06ctg" path="res://Art/Powerups/instakill.png" id="1_g1i0r"]
+[ext_resource type="Script" uid="uid://b0d0v0cs1n4gd" path="res://Scripts/Powerups/powerupStat.gd" id="2_g1i0r"]
+
+[resource]
+script = ExtResource("2_g1i0r")
+powerup_name = "Instakill"
+icon = ExtResource("1_g1i0r")
+metadata/_custom_type_script = "uid://b0d0v0cs1n4gd"

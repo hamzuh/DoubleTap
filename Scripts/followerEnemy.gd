@@ -19,9 +19,11 @@ var knockforce: float
 var knockdirect: Vector2
 
 # Signals
-signal enemy_dead()
+signal enemy_dead(position)
 
-func hit(killer, damage, knockback):
+func hit(killer, damage, knockback, instakill):
+	if instakill:
+		die(killer)
 	health -= damage
 	print(health)
 	killer.increase_points(10)
@@ -34,7 +36,7 @@ func hit(killer, damage, knockback):
 
 func die(killer):
 	killer.increase_points(50)
-	enemy_dead.emit()
+	enemy_dead.emit(position)
 	# print("I died!")
 	# Add blood spurting effect
 	# Play death noise

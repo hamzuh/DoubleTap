@@ -9,6 +9,7 @@ var attack3: bool = false
 
 func enter() -> void:
 	super()
+	parent.hands_occupied = true
 	$"../../Hitboxes/RP".disabled = false
 
 func _on_player_animations_animation_finished():
@@ -34,3 +35,7 @@ func process_physics(delta: float) -> State:
 			return move_state
 		return idle_state
 	return null
+
+func exit() -> void:
+	parent.hands_occupied = false
+	super()

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cri66p7dnptc0"]
+
+[ext_resource type="Script" uid="uid://myhfsuld0jun" path="res://Scripts/Powerups/powerup.gd" id="1_t7m5g"]
+[ext_resource type="Texture2D" uid="uid://c46oujf05mf6" path="res://Art/Light Textures/neutrallight.png" id="2_ato5q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7m5g"]
+size = Vector2(100, 100)
+
+[node name="Powerup" type="Area2D" unique_id=1413027866]
+script = ExtResource("1_t7m5g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=569697315]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1269092955]
+shape = SubResource("RectangleShape2D_t7m5g")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1020912778]
+color = Color(1, 0.2784314, 0, 1)
+texture = ExtResource("2_ato5q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

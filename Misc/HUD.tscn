@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b8ni4hhmkak4l" path="res://Scripts/HUD.gd" id="1_uhgrr"]
 [ext_resource type="FontFile" uid="uid://c4ps1ss3rbhvv" path="res://Fonts/UbuntuSansMono-VariableFont_wght.ttf" id="2_6hjtx"]
+[ext_resource type="Texture2D" uid="uid://ct4lqi2i06ctg" path="res://Art/Powerups/instakill.png" id="3_ohl3i"]
+[ext_resource type="Texture2D" uid="uid://bkjg2u6eonf7l" path="res://Art/Powerups/doublepoints.png" id="4_q78pt"]
+[ext_resource type="Texture2D" uid="uid://byg4m6ka6fw14" path="res://Art/Powerups/firesale.png" id="5_ijed4"]
 
 [node name="HUD" type="CanvasLayer" unique_id=781150038]
 script = ExtResource("1_uhgrr")
@@ -88,3 +91,35 @@ offset_top = 140.0
 offset_right = 307.0
 offset_bottom = 227.0
 text = "Spawn Room"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=10706629]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -540.0
+offset_top = -180.0
+offset_right = -43.0
+offset_bottom = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="Instakill" type="TextureRect" parent="HBoxContainer" unique_id=793569896]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_ohl3i")
+expand_mode = 3
+
+[node name="Double Points" type="TextureRect" parent="HBoxContainer" unique_id=986548486]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_q78pt")
+expand_mode = 3
+
+[node name="Fire Sale" type="TextureRect" parent="HBoxContainer" unique_id=950511564]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_ijed4")
+expand_mode = 3

@@ -38,3 +38,12 @@ func _on_player_ammo_changed(current_ammo: Variant, reserve_ammo: Variant) -> vo
 	if not self.is_node_ready():
 		await self.ready
 	ammoLabel.text = str(current_ammo) + " / " + str(reserve_ammo)
+
+func _on_main_powerup_activate(startOrEnd: Variant, powerup_name: Variant) -> void:
+	match powerup_name:
+		"Double Points":
+			$"HBoxContainer/Double Points".visible = startOrEnd
+		"Instakill":
+			$HBoxContainer/Instakill.visible = startOrEnd
+		"Fire Sale":
+			$"HBoxContainer/Fire Sale".visible = startOrEnd

@@ -30,7 +30,24 @@ color = Color(0.056745008, 3.102027e-05, 0.2217564, 1)
 stream = ExtResource("5_nl2ee")
 volume_db = -3.424
 autoplay = true
+bus = &"Music"
 
+[node name="Powerup Timers" type="Node" parent="." unique_id=710217961]
+
+[node name="DoublePoints" type="Timer" parent="Powerup Timers" unique_id=124251421]
+wait_time = 20.0
+one_shot = true
+
+[node name="FireSale" type="Timer" parent="Powerup Timers" unique_id=889261996]
+wait_time = 20.0
+one_shot = true
+
+[node name="Instakill" type="Timer" parent="Powerup Timers" unique_id=1899713156]
+wait_time = 20.0
+one_shot = true
+
+[connection signal="powerup_activate" from="." to="Player" method="_on_main_powerup_activate"]
+[connection signal="powerup_activate" from="." to="HUD" method="_on_main_powerup_activate"]
 [connection signal="round_end" from="." to="." method="_on_round_end"]
 [connection signal="round_start" from="." to="HUD" method="_on_main_round_start"]
 [connection signal="ammo_changed" from="Player" to="HUD" method="_on_player_ammo_changed"]
@@ -45,3 +62,6 @@ autoplay = true
 [connection signal="roomchange" from="Level" to="HUD" method="_on_level_roomchange"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]
+[connection signal="timeout" from="Powerup Timers/DoublePoints" to="." method="_on_double_points_timeout"]
+[connection signal="timeout" from="Powerup Timers/FireSale" to="." method="_on_fire_sale_timeout"]
+[connection signal="timeout" from="Powerup Timers/Instakill" to="." method="_on_instakill_timeout"]
