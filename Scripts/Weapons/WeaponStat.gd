@@ -15,3 +15,6 @@ class_name WeaponStat extends Resource
 
 @export var texture: Texture2D
 @export var fireSFX: Array[AudioStream]
+
+@export var drawSFX: AudioStream
+@export var reloadSFX: AudioStream

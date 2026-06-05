@@ -23,6 +23,7 @@ TO DO:
 		- +Points on HUD counter when earning
 		- When turning on the power, keep the canvas modulate (or lessen it) but flick on the lights in the level, send signal to custom function for level
 	- SFX
+		- Swish on melee miss, thwack on hit
 		- Powerup pickup
 		- Power switch on
 		- Make Attack a custom class state, add sound effect resource
@@ -34,6 +35,10 @@ TO DO:
 		- Reloading
 			- Display reload bar on HUD, use animation progress to track
 			- Timer for walk slowdown on shooting
+		- Shotgun
+			- Hitscan version, for x in concurrent bullets shoot rays
+		- Projectile weapons
+			- On resource for the projectile bool, when toggled open a submenu to put in the projectile scene
 	- Buyable doors
 		- Display buy text when next to door
 		- Button hold to buy door

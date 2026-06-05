@@ -51,6 +51,6 @@ texture = ExtResource("2_gfs5o")
 offset = Vector2(370, 0)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1521119055]
-volume_db = -12.822
+volume_db = -9.973
 max_polyphony = 5
 bus = &"Weapons"

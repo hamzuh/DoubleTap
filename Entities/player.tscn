@@ -186,7 +186,7 @@ shape = SubResource("RectangleShape2D_fd6u4")
 disabled = true
 script = ExtResource("23_73uii")
 damage = 40
-knockback = 450
+knockback = 900
 
 [node name="Punch" type="AudioStreamPlayer" parent="." unique_id=1576893271]
 stream = ExtResource("24_g7r2t")

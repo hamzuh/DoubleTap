@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c02s6ksim4in6"
+path="res://.godot/imported/Damage 3.wav-ee97a6e41342e193a38e2c3b207694a6.sample"
+
+[deps]
+
+source_file="res://Audio/Player/Voice Lines/Damage/Damage 3.wav"
+dest_files=["res://.godot/imported/Damage 3.wav-ee97a6e41342e193a38e2c3b207694a6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

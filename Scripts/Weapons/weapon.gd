@@ -23,6 +23,8 @@ var damage: float
 var knockback: float
 var cooldown: float = 0
 var sfx: Array[AudioStream]
+var drawSFX: AudioStream
+var reloadSFX: AudioStream
 
 var triggerHeld: bool = false
 
@@ -45,6 +47,8 @@ func _ready() -> void:
 	automatic = stats.automatic
 	sprite.texture = stats.texture
 	sfx = stats.fireSFX
+	drawSFX = stats.drawSFX
+	reloadSFX = stats.reloadSFX
 	
 	max_ammo = stats.max_ammo
 	mag_size = stats.mag_size
@@ -70,11 +74,12 @@ func fire():
 		get_parent().ammo_changed.emit(ammo_dict[weaponName][0], ammo_dict[weaponName][1])
 		# Play shot effect
 		# Probably randomise pitch a bit too
+		audioPlayer.pitch_scale = 1 + randf_range(-0.2, 0.2)
 		audioPlayer.stream = sfx.pick_random()
 		audioPlayer.play()
 		# Shake the camera
 		# Maybe change this to take info from resource and increase intensity over time for automatics
-		get_parent().camera.shake(10, 0.05)
+		get_parent().camera.shake(8, 0.08)
 		ray.target_position = Vector2(1000, 0).rotated(randf_range(-PI/2, PI/2) * spread)
 		if ray.is_colliding():
 			if ray.get_collider().is_in_group("Enemy"):
@@ -115,14 +120,22 @@ func swap():
 	automatic = stats.automatic
 	sprite.texture = stats.texture
 	sfx = stats.fireSFX
+	drawSFX = stats.drawSFX
+	reloadSFX = stats.reloadSFX
 	
 	max_ammo = stats.max_ammo
 	mag_size = stats.mag_size
 	
 	get_parent().ammo_changed.emit(ammo_dict[weaponName][0], ammo_dict[weaponName][1])
+	
+	audioPlayer.pitch_scale = 1
+	audioPlayer.stream = drawSFX
+	audioPlayer.play()
 
 func reload():
-	if ammo_dict[weaponName][1] == 0:
+	# If no ammo left in reserve or current mag is full...
+	if ammo_dict[weaponName][1] == 0 or ammo_dict[weaponName][0] == mag_size:
+		# No reloading
 		return
 	elif (ammo_dict[weaponName][0] + ammo_dict[weaponName][1]) <= mag_size:
 		ammo_dict[weaponName][0] += ammo_dict[weaponName][1]
@@ -131,6 +144,10 @@ func reload():
 		ammo_dict[weaponName][1] = ammo_dict[weaponName][1] + ammo_dict[weaponName][0] - mag_size
 		ammo_dict[weaponName][0] = mag_size
 	get_parent().ammo_changed.emit(ammo_dict[weaponName][0], ammo_dict[weaponName][1])
+	
+	audioPlayer.pitch_scale = 1
+	audioPlayer.stream = reloadSFX
+	audioPlayer.play()
 
 func max_ammo_powerup():
 	for weapon in loadout:

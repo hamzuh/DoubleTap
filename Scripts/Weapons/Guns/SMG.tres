@@ -2,9 +2,11 @@
 
 [ext_resource type="AudioStream" uid="uid://dwdu2p0tr3kg7" path="res://Audio/Weapons/SMG/mac10_01.wav" id="1_8pjg1"]
 [ext_resource type="Script" uid="uid://cuw8gyyfc3ugm" path="res://Scripts/Weapons/WeaponStat.gd" id="1_8ujca"]
+[ext_resource type="AudioStream" uid="uid://c26o1hll23cys" path="res://Audio/Weapons/SMG/mac10_draw.wav" id="1_e2eum"]
 [ext_resource type="AudioStream" uid="uid://85gl7ncgqta1" path="res://Audio/Weapons/SMG/mac10_02.wav" id="2_2i05l"]
 [ext_resource type="Texture2D" uid="uid://l2qte2qd7q3b" path="res://Art/Weapons/Pistol/pistol.png" id="2_ubfou"]
 [ext_resource type="AudioStream" uid="uid://ot7ssxudrpas" path="res://Audio/Weapons/SMG/mac10_03.wav" id="3_e2eum"]
+[ext_resource type="AudioStream" uid="uid://dtf8aj3gm43as" path="res://Audio/Weapons/SMG/mac10_clipin.wav" id="5_s53od"]
 
 [resource]
 script = ExtResource("1_8ujca")
@@ -19,4 +21,6 @@ damage = 10.0
 knockback = 100.0
 texture = ExtResource("2_ubfou")
 fireSFX = Array[AudioStream]([ExtResource("1_8pjg1"), ExtResource("2_2i05l"), ExtResource("3_e2eum")])
+drawSFX = ExtResource("1_e2eum")
+reloadSFX = ExtResource("5_s53od")
 metadata/_custom_type_script = "uid://cuw8gyyfc3ugm"
