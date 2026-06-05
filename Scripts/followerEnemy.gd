@@ -11,7 +11,7 @@ extends CharacterBody2D
 var speed: int = 100
 #var speed: float = randf_range(97, 100)
 var health: int = 100
-var variation: Vector2 = Vector2(randf_range(0, 100), 0).rotated(randf_range(0, 2*PI))
+var variation: Vector2 = Vector2(randf_range(0, 22), 0).rotated(randf_range(0, 2*PI))
 
 # Knockback variables
 var knock: bool = false

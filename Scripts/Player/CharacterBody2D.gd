@@ -29,6 +29,9 @@ var powerSwitch: bool = false
 var instakill: bool = false
 var double_points: bool = false
 
+# Camera Variables
+@onready var camera: Camera2D = $Camera2D
+
 # Signals
 signal money_changed()
 signal ammo_changed(current_ammo, reserve_ammo)

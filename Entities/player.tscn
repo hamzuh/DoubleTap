@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c4n86phsw5tin" path="res://Art/Player/attack/attack2/rp1.png" id="12_hx8w8"]
 [ext_resource type="Texture2D" uid="uid://6a6gawwm7yxq" path="res://Art/Player/attack/attack2/rp2.png" id="13_478ti"]
 [ext_resource type="Texture2D" uid="uid://c4jn3jgfey4dv" path="res://Art/Player/attack/attack2/rp3.png" id="14_o5x8e"]
+[ext_resource type="Script" uid="uid://cug4q5fxn1kbm" path="res://Scripts/camera.gd" id="14_qbc8u"]
 [ext_resource type="Texture2D" uid="uid://b1ovqkmraylvi" path="res://Art/Player/attack/attack3/k1.png" id="16_x6csf"]
 [ext_resource type="Texture2D" uid="uid://bnv214jwurwop" path="res://Art/Player/attack/attack3/k2.png" id="17_o0pwu"]
 [ext_resource type="Texture2D" uid="uid://ckj4gbq2aitwq" path="res://Art/Player/attack/attack3/k3.png" id="18_cv7bs"]
@@ -100,7 +101,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sr0yt"]
-radius = 19.57
+radius = 22.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fd6u4"]
 size = Vector2(69, 51)
@@ -115,13 +116,14 @@ script = ExtResource("1_dcg4n")
 rotation = 1.5708
 scale = Vector2(15, 15)
 sprite_frames = SubResource("SpriteFrames_6fhto")
-animation = &"move"
+animation = &"attack1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1336274023]
 shape = SubResource("CircleShape2D_sr0yt")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=785857714]
 position_smoothing_enabled = true
+script = ExtResource("14_qbc8u")
 
 [node name="State Machine" type="Node" parent="." unique_id=1673622242 node_paths=PackedStringArray("start_state")]
 script = ExtResource("6_lfewg")

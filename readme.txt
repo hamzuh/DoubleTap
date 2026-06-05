@@ -16,9 +16,13 @@ TO DO:
 		- Nuke
 		- Fire Sale
 	- VFX
-		- Muzzle Flash
+		- Who doesn't love some cray cray UI (LERP)
+		- Gun smoke
+		- Improve Muzzle Flash
 		- +Points on HUD counter when earning
+		- When turning on the power, keep the canvas modulate (or lessen it) but flick on the lights in the level, send signal to custom function for level
 	- SFX
+		- Make Attack a custom class state, add sound effect resource
 		- Array of sounds for gunshot variety
 	- Gun mechanics
 		- Swapping

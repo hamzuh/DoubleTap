@@ -68,8 +68,13 @@ func fire():
 	if canFire():
 		ammo_dict[weaponName][0] -= 1
 		get_parent().ammo_changed.emit(ammo_dict[weaponName][0], ammo_dict[weaponName][1])
+		# Play shot effect
+		# Probably randomise pitch a bit too
 		audioPlayer.stream = sfx.pick_random()
 		audioPlayer.play()
+		# Shake the camera
+		# Maybe change this to take info from resource and increase intensity over time for automatics
+		get_parent().camera.shake(10, 0.05)
 		ray.target_position = Vector2(1000, 0).rotated(randf_range(-PI/2, PI/2) * spread)
 		if ray.is_colliding():
 			if ray.get_collider().is_in_group("Enemy"):
