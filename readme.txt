@@ -7,6 +7,7 @@ in 2D, so allow the player to attain a crazy level of power.
 Emphasise the perfect run. One completely independent mode where all is gained or lost in one playthrough.
 
 TO DO:
+	- Despawn Powerups after 10 seconds
 	- Fix enemy following variation on player position
 		- If the varied position is through a wall the enemy will go the wrong way
 	- Powerups
@@ -22,6 +23,8 @@ TO DO:
 		- +Points on HUD counter when earning
 		- When turning on the power, keep the canvas modulate (or lessen it) but flick on the lights in the level, send signal to custom function for level
 	- SFX
+		- Powerup pickup
+		- Power switch on
 		- Make Attack a custom class state, add sound effect resource
 		- Array of sounds for gunshot variety
 	- Gun mechanics

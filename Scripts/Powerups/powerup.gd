@@ -30,3 +30,7 @@ func _on_body_entered(body: Node2D) -> void:
 		picked_up.emit(powerup_name, body)
 		# Play pickup animation / FX
 		queue_free()
+
+func _on_expiration_timer_timeout() -> void:
+	# Disappear animation
+	queue_free()
