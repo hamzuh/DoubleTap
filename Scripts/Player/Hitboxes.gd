@@ -10,4 +10,6 @@ func _on_body_entered(body):
 				body.hit(owner, hitbox.damage, hitbox.knockback, owner.instakill)
 				if hitbox == $LK:
 					owner.camera.shake(11, 0.15)
+				owner.melee_audio.stream = hitbox.onHitSFX
+				owner.melee_audio.play()
 				#print(hitbox)

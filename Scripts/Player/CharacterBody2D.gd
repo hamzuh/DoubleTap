@@ -21,6 +21,7 @@ var direction = Vector2()
 var buyDoor: bool = false
 var doorNum: int = 0
 var cost: int = 0
+var xHold: float = 0
 
 # Switch Variable
 var powerSwitch: bool = false
@@ -41,9 +42,11 @@ signal powerOn()
 # State Machines Variables
 @onready var state_machine: Node = $"State Machine"
 @onready var movement_animation: Node = $PlayerAnimations
+@onready var melee_audio: Node = $"Melee Sounds"
 
 func _ready() -> void:
 	state_machine.init(self, movement_animation)
+	$AudioListener2D.make_current()
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
@@ -51,8 +54,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
 	rs_look()
-	if not hands_occupied:
-		if Input.is_action_pressed("shootaction"):
+	if Input.is_action_pressed("Light Attack"):
+		xHold += delta
+		if buyDoor and (money >= cost) and xHold >= 0.85:
+			buy_door.emit(doorNum)
+			spend_money(cost)
+	if Input.is_action_pressed("shootaction"):
+		if not hands_occupied:
 			speed = 200
 			weapon.fire()
 	
@@ -96,13 +104,15 @@ func _on_level_doorbuymessage(openOrClose: Variant, door: Variant, price) -> voi
 		
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Light Attack"):
-		if buyDoor and (money >= cost):
-			buy_door.emit(doorNum)
-			spend_money(cost)
+		#if buyDoor and (money >= cost):
+			#buy_door.emit(doorNum)
+			#spend_money(cost)
 		if powerSwitch:
 			powerOn.emit()
 			$AuraLight.visible = false
 			$Flashlight.visible = false
+	if Input.is_action_just_released("Light Attack"):
+		xHold = 0
 	if Input.is_action_just_released("shootaction"):
 		weapon.releaseTrigger()
 		speed = 300

@@ -15,7 +15,7 @@ func _on_level_doorbuymessage(openOrClose: Variant, door, price) -> void:
 	if openOrClose:
 		doorDebug.visible = true
 		doorDebug.text = str(door)
-		buyPrompt.text = ("Press X to buy door" + "\n£" + str(price))
+		buyPrompt.text = ("Hold X to buy door" + "\n£" + str(price))
 		buyPrompt.visible = true
 	else:
 		doorDebug.visible = false

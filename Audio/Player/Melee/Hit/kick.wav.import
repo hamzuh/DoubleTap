@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://yln8fww8fcs7"
-path="res://.godot/imported/punch.wav-e043650d1c56035bed6cb35f26deb791.sample"
+uid="uid://dlmarqxoc4u8o"
+path="res://.godot/imported/kick.wav-717ab109491e2a7fcc1a3e36805ded15.sample"
 
 [deps]
 
-source_file="res://Audio/Player/punch.wav"
-dest_files=["res://.godot/imported/punch.wav-e043650d1c56035bed6cb35f26deb791.sample"]
+source_file="res://Audio/Player/Melee/Hit/kick.wav"
+dest_files=["res://.godot/imported/kick.wav-717ab109491e2a7fcc1a3e36805ded15.sample"]
 
 [params]
 

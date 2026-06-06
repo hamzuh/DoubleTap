@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://myhfsuld0jun" path="res://Scripts/Powerups/powerup.gd" id="1_t7m5g"]
 [ext_resource type="Texture2D" uid="uid://c46oujf05mf6" path="res://Art/Light Textures/neutrallight.png" id="2_ato5q"]
+[ext_resource type="AudioStream" uid="uid://cx5dcp7va1v0n" path="res://Audio/Powerups/powerupspawn.wav" id="3_yxl8l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7m5g"]
 size = Vector2(100, 100)
@@ -24,5 +25,12 @@ wait_time = 10.0
 one_shot = true
 autostart = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=479315804]
+stream = ExtResource("3_yxl8l")
+volume_db = -8.814
+autoplay = true
+max_polyphony = 2
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Expiration Timer" to="." method="_on_expiration_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

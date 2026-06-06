@@ -5,6 +5,9 @@ extends StaticBody2D
 
 var current_room = "Spawn Room"
 
+@onready var doorAudio: Node = $"Door Open"
+@onready var switchAudio: Node = $"Power Switch/Switch Noise"
+
 signal doorbuymessage(openOrClose, door, price)
 signal roomchange(roomname)
 
@@ -116,6 +119,7 @@ func _on_player_buy_door(doorNum: Variant) -> void:
 			$Spawners/OutdoorCubby.activated = true
 			$Spawners/OutdoorFence.activated = true
 	$NavigationRegion2D.bake_navigation_polygon()
+	doorAudio.play()
 
 func _on_spawn_room_body_entered(body: Node2D) -> void:
 	if body == Player:
@@ -175,3 +179,4 @@ func _on_power_switch_body_exited(body: Node2D) -> void:
 
 func _on_player_power_on() -> void:
 	$"Power Switch".monitoring = false
+	switchAudio.play()

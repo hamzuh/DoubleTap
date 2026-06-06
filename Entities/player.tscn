@@ -17,15 +17,17 @@
 [ext_resource type="Texture2D" uid="uid://bnv214jwurwop" path="res://Art/Player/attack/attack3/k2.png" id="17_o0pwu"]
 [ext_resource type="Texture2D" uid="uid://ckj4gbq2aitwq" path="res://Art/Player/attack/attack3/k3.png" id="18_cv7bs"]
 [ext_resource type="Script" uid="uid://coopc4o0p4ny7" path="res://Scripts/Player/States/Attacks/Attack2.gd" id="18_omeev"]
+[ext_resource type="AudioStream" uid="uid://dq6tyq7e41u1g" path="res://Audio/Player/Melee/Woosh/leftpunch.wav" id="19_b1m20"]
 [ext_resource type="Script" uid="uid://dmlyfqcibqjm4" path="res://Scripts/Player/States/Attacks/Attack3.gd" id="19_p1g68"]
 [ext_resource type="Script" uid="uid://07bgrreiwtmj" path="res://Scripts/Player/States/Attacks/Attack.gd" id="20_bfq4n"]
 [ext_resource type="Texture2D" uid="uid://4fitgkofdtto" path="res://Art/Player/idle.png" id="20_qrqvp"]
 [ext_resource type="Script" uid="uid://cpr0tsfwmlp4o" path="res://Scripts/Player/Hitboxes.gd" id="20_u7xgm"]
-[ext_resource type="Script" uid="uid://xq5jxq3n53fy" path="res://Scripts/Player/Attacks/LP.gd" id="21_ocq0e"]
-[ext_resource type="Script" uid="uid://cvp42ovyym1ff" path="res://Scripts/Player/Attacks/RP.gd" id="22_k70sm"]
-[ext_resource type="Script" uid="uid://bysoxxqabif7b" path="res://Scripts/Player/Attacks/LK.gd" id="23_73uii"]
-[ext_resource type="AudioStream" uid="uid://yln8fww8fcs7" path="res://Audio/Player/punch.wav" id="24_g7r2t"]
-[ext_resource type="AudioStream" uid="uid://dlmarqxoc4u8o" path="res://Audio/Player/kick.wav" id="25_x2ley"]
+[ext_resource type="Script" uid="uid://xq5jxq3n53fy" path="res://Scripts/Player/Attacks/attack_hitbox.gd" id="21_ocq0e"]
+[ext_resource type="AudioStream" uid="uid://6q7u2kdgqcn8" path="res://Audio/Player/Melee/Woosh/rightpunch.wav" id="21_w8hnq"]
+[ext_resource type="AudioStream" uid="uid://rdubc63uum2f" path="res://Audio/Player/Melee/Hit/lphit.wav" id="23_jcafi"]
+[ext_resource type="AudioStream" uid="uid://bt1ybevnnsw6u" path="res://Audio/Player/Melee/Woosh/kickwoosh.wav" id="23_vknsg"]
+[ext_resource type="AudioStream" uid="uid://bw162uh4qr21v" path="res://Audio/Player/Melee/Hit/rphit.wav" id="24_qbc8u"]
+[ext_resource type="AudioStream" uid="uid://cvt3dtafeuc4n" path="res://Audio/Player/Melee/Hit/kickding.wav" id="25_738w2"]
 [ext_resource type="PackedScene" uid="uid://d0360nvb08v21" path="res://Entities/Weapon.tscn" id="26_8qynv"]
 [ext_resource type="Texture2D" uid="uid://c46oujf05mf6" path="res://Art/Light Textures/neutrallight.png" id="27_kksrn"]
 [ext_resource type="Texture2D" uid="uid://dbfo3ovgk4rx" path="res://Art/Light Textures/torch_light.png" id="28_jcafi"]
@@ -146,6 +148,7 @@ script = ExtResource("20_bfq4n")
 idle_state = NodePath("../Idle")
 move_state = NodePath("../Moving")
 attack2_state = NodePath("../Attack2")
+wooshSFX = ExtResource("19_b1m20")
 animation_name = "attack1"
 
 [node name="Attack2" type="Node" parent="State Machine" unique_id=1025956347 node_paths=PackedStringArray("idle_state", "move_state", "attack3_state")]
@@ -153,12 +156,14 @@ script = ExtResource("18_omeev")
 idle_state = NodePath("../Idle")
 move_state = NodePath("../Moving")
 attack3_state = NodePath("../Attack3")
+wooshSFX = ExtResource("21_w8hnq")
 animation_name = "attack2"
 
 [node name="Attack3" type="Node" parent="State Machine" unique_id=1004324845 node_paths=PackedStringArray("idle_state", "move_state")]
 script = ExtResource("19_p1g68")
 idle_state = NodePath("../Idle")
 move_state = NodePath("../Moving")
+wooshSFX = ExtResource("23_vknsg")
 animation_name = "attack3"
 
 [node name="Hitboxes" type="Area2D" parent="." unique_id=214762545]
@@ -171,28 +176,29 @@ disabled = true
 script = ExtResource("21_ocq0e")
 damage = 10
 knockback = 200
+onHitSFX = ExtResource("23_jcafi")
 
 [node name="RP" type="CollisionShape2D" parent="Hitboxes" unique_id=256914360]
 position = Vector2(24.5, 20)
 shape = SubResource("RectangleShape2D_fd6u4")
 disabled = true
-script = ExtResource("22_k70sm")
+script = ExtResource("21_ocq0e")
 damage = 20
 knockback = 250
+onHitSFX = ExtResource("24_qbc8u")
 
 [node name="LK" type="CollisionShape2D" parent="Hitboxes" unique_id=166568486]
 position = Vector2(34.5, 0.5)
 shape = SubResource("RectangleShape2D_fd6u4")
 disabled = true
-script = ExtResource("23_73uii")
+script = ExtResource("21_ocq0e")
 damage = 40
 knockback = 900
+onHitSFX = ExtResource("25_738w2")
 
-[node name="Punch" type="AudioStreamPlayer" parent="." unique_id=1576893271]
-stream = ExtResource("24_g7r2t")
-
-[node name="Kick" type="AudioStreamPlayer" parent="." unique_id=205406263]
-stream = ExtResource("25_x2ley")
+[node name="Melee Sounds" type="AudioStreamPlayer2D" parent="." unique_id=268607296]
+volume_db = -8.226
+bus = &"Melee"
 
 [node name="Weapon" parent="." unique_id=62659546 instance=ExtResource("26_8qynv")]
 
@@ -207,6 +213,9 @@ shadow_enabled = true
 texture = ExtResource("28_jcafi")
 offset = Vector2(380, -6)
 texture_scale = 1.2
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1009001673]
+current = true
 
 [connection signal="animation_finished" from="PlayerAnimations" to="State Machine/Attack" method="_on_player_animations_animation_finished"]
 [connection signal="animation_finished" from="PlayerAnimations" to="State Machine/Attack2" method="_on_player_animations_animation_finished"]

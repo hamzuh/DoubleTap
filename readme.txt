@@ -7,14 +7,17 @@ in 2D, so allow the player to attain a crazy level of power.
 Emphasise the perfect run. One completely independent mode where all is gained or lost in one playthrough.
 
 TO DO:
-	- Despawn Powerups after 10 seconds
+	- Despawn Powerups after 10 seconds *
 	- Fix enemy following variation on player position
 		- If the varied position is through a wall the enemy will go the wrong way
 	- Powerups
 		- Double Points
 		- Instakill
 		- Max Ammo
+			- Reload only reserve ammo? Like old COD
 		- Nuke
+			- Call enemy nuke death function instead
+			- Give points to player directly
 		- Fire Sale
 	- VFX
 		- Who doesn't love some cray cray UI (LERP)
@@ -84,7 +87,6 @@ TO DO:
 	- Bullet lifetime or bullet on screen count
 	- Sound effects
 	- Graphics
-		- Rotating shuriken for bullets
 		- Doors
 		- Player Character
 		- Enemies

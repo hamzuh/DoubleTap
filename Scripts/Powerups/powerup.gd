@@ -9,6 +9,9 @@ class_name Powerup extends Area2D
 @onready var lighting: PointLight2D = $PointLight2D
 var lightval: float
 
+@onready var audioPlayer: Node = $AudioStreamPlayer2D
+@onready var pickupSFX: AudioStream = load("res://Audio/Powerups/poweruppickup.wav")
+
 signal picked_up(powerup_name, picker)
 
 func _ready() -> void:
@@ -29,8 +32,19 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		picked_up.emit(powerup_name, body)
 		# Play pickup animation / FX
-		queue_free()
+		sprite.visible = false
+		$CollisionShape2D.disabled = true
+		lighting.visible = false
+		audioPlayer.stream = pickupSFX
+		audioPlayer.play()
+		#queue_free()
 
 func _on_expiration_timer_timeout() -> void:
 	# Disappear animation
 	queue_free()
+
+# This sucks
+# Attach to animation end later and tie in sound
+func _on_audio_stream_player_2d_finished() -> void:
+	if audioPlayer.stream == pickupSFX:
+		queue_free()

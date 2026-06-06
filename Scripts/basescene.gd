@@ -16,6 +16,9 @@ var enemies_to_spawn: int
 var powerup = preload("res://Entities/Powerup.tscn")
 signal powerup_activate(startOrEnd, powerup_name)
 
+@onready var levelSFX: Node = $LevelSFX
+@onready var roundStartFX: AudioStream = load("res://Audio/Environment/roundstart.wav")
+@onready var roundEndFX: AudioStream = load("res://Audio/Environment/roundend.wav")
 signal round_end
 signal round_start(roundCount)
 
@@ -57,6 +60,8 @@ func _on_spawn_timer_timeout() -> void:
 func _on_round_end() -> void:
 	spawnTimer.stop()
 	roundTimer.start()
+	levelSFX.stream = roundEndFX
+	levelSFX.play()
 
 func _on_round_timer_timeout() -> void:
 	round += 1
@@ -65,6 +70,8 @@ func _on_round_timer_timeout() -> void:
 	enemies_to_spawn = 5 + (round * 3)
 	round_start.emit(round)
 	spawnTimer.start()
+	levelSFX.stream = roundStartFX
+	levelSFX.play()
 
 func _on_player_power_on() -> void:
 	$CanvasModulate.visible = false

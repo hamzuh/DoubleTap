@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://1dtc54ctl6nw" path="res://Art/Environment/Doors/d10.png" id="12_c5gc3"]
 [ext_resource type="PackedScene" uid="uid://bxj6t3coq1d7r" path="res://Entities/spawner.tscn" id="13_n8vhr"]
 [ext_resource type="Texture2D" uid="uid://blrfbk1g7j8k8" path="res://Art/Environment/powerswitch.png" id="14_eqrsh"]
+[ext_resource type="AudioStream" uid="uid://dx3h5k3sxvbi8" path="res://Audio/Environment/Door Open.wav" id="15_aug53"]
+[ext_resource type="AudioStream" uid="uid://dhtyqel4khvt5" path="res://Audio/Environment/powerOn.wav" id="15_tar17"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_brumv"]
 size = Vector2(952, 11)
@@ -597,6 +599,14 @@ texture = ExtResource("14_eqrsh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Power Switch" unique_id=2082775702]
 position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_6wmxb")
+
+[node name="Switch Noise" type="AudioStreamPlayer2D" parent="Power Switch" unique_id=1950397139]
+stream = ExtResource("15_tar17")
+volume_db = -4.7
+
+[node name="Door Open" type="AudioStreamPlayer" parent="." unique_id=2108559237]
+stream = ExtResource("15_aug53")
+volume_db = -5.445
 
 [connection signal="body_shape_entered" from="DoorBuyable" to="." method="_on_door_buyable_body_shape_entered"]
 [connection signal="body_shape_exited" from="DoorBuyable" to="." method="_on_door_buyable_body_shape_exited"]

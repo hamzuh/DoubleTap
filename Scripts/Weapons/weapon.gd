@@ -74,6 +74,7 @@ func fire():
 		get_parent().ammo_changed.emit(ammo_dict[weaponName][0], ammo_dict[weaponName][1])
 		# Play shot effect
 		# Probably randomise pitch a bit too
+		
 		audioPlayer.pitch_scale = 1 + randf_range(-0.2, 0.2)
 		audioPlayer.stream = sfx.pick_random()
 		audioPlayer.play()

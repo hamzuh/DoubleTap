@@ -39,6 +39,7 @@ end_cap_mode = 2
 [node name="Muzzle" type="Node2D" parent="." unique_id=1736208642]
 
 [node name="MuzzleSprite" type="Sprite2D" parent="Muzzle" unique_id=1914110987]
+visible = false
 z_index = -1
 position = Vector2(70, 0)
 texture = ExtResource("2_al4sa")
@@ -51,6 +52,7 @@ texture = ExtResource("2_gfs5o")
 offset = Vector2(370, 0)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1521119055]
+position = Vector2(20, 0)
 volume_db = -9.973
 max_polyphony = 5
-bus = &"Weapons"
+panning_strength = 2.0

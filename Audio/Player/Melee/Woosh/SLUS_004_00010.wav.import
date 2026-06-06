@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://biwkds8vq60wa"
-path="res://.godot/imported/SLUS_004_00010.wav-ef8429e68fc991cba8b1b1976a7484f3.sample"
+path="res://.godot/imported/SLUS_004_00010.wav-1671a1bae93348fb99af4e7aa9620c3c.sample"
 
 [deps]
 
-source_file="res://Audio/Player/Melee/SLUS_004_00010.wav"
-dest_files=["res://.godot/imported/SLUS_004_00010.wav-ef8429e68fc991cba8b1b1976a7484f3.sample"]
+source_file="res://Audio/Player/Melee/Woosh/SLUS_004_00010.wav"
+dest_files=["res://.godot/imported/SLUS_004_00010.wav-1671a1bae93348fb99af4e7aa9620c3c.sample"]
 
 [params]
 
