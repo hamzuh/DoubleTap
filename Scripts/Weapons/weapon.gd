@@ -33,6 +33,10 @@ var ammo_dict = {}
 var max_ammo: int
 var mag_size: int
 
+# Coin variables
+var coin = preload("res://Entities/coin.tscn")
+var coinSpread = 0.1
+
 func _ready() -> void:
 	stats = weapon_type.duplicate()
 	
@@ -74,7 +78,6 @@ func fire():
 		get_parent().ammo_changed.emit(ammo_dict[weaponName][0], ammo_dict[weaponName][1])
 		# Play shot effect
 		# Probably randomise pitch a bit too
-		
 		audioPlayer.pitch_scale = 1 + randf_range(-0.2, 0.2)
 		audioPlayer.stream = sfx.pick_random()
 		audioPlayer.play()
@@ -83,9 +86,18 @@ func fire():
 		get_parent().camera.shake(8, 0.08)
 		ray.target_position = Vector2(1000, 0).rotated(randf_range(-PI/2, PI/2) * spread)
 		if ray.is_colliding():
-			if ray.get_collider().is_in_group("Enemy"):
-				ray.get_collider().hit(get_parent(), damage, knockback, get_parent().instakill)
-			tracer.set_point_position(1, to_local(ray.get_collision_point()))
+			if ray.get_collider().is_in_group("Coin"):
+				ray.get_collider().hit(get_parent(), weaponName, damage, knockback, get_parent().instakill)
+				tracer.set_point_position(1, to_local(ray.get_collider().position))
+				tracer.gradient.set_color(1, Color(1, 1, 1))
+				tracer.width_curve.set_point_value(0, 1)
+				#print("ting")
+			else:
+				tracer.width_curve.set_point_value(0, 0.5)
+				tracer.gradient.set_color(1, Color(1, 0.71, 0))
+				if ray.get_collider().is_in_group("Enemy"):
+					ray.get_collider().hit(get_parent(), damage, knockback, get_parent().instakill)
+				tracer.set_point_position(1, to_local(ray.get_collision_point()))
 		else:
 			tracer.set_point_position(1, ray.target_position)
 		muzzleFlash.visible = true
@@ -94,6 +106,14 @@ func fire():
 		cooldown = firerate
 	if not triggerHeld:
 		triggerHeld = true
+
+func alt_fire():
+	# Add cooldown timer or blood resource thing
+	var coinSpawn = coin.instantiate()
+	coinSpawn.hitter = get_parent()
+	coinSpawn.position = get_parent().position
+	coinSpawn.direction = Vector2(1, 0).rotated(get_parent().rotation).rotated(randf_range(-PI/2, PI/2) * coinSpread)
+	Globals.base.add_child(coinSpawn)
 
 func canFire():
 	if ammo_dict[weaponName][0] > 0:

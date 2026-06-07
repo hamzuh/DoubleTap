@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://clfned3snocal" path="res://Art/Weapons/Coin/coin1.png" id="1_y55b1"]
 [ext_resource type="Texture2D" uid="uid://dtsg1gu3ux1hl" path="res://Art/Weapons/Coin/coin2.png" id="2_fbuj7"]
 [ext_resource type="Texture2D" uid="uid://cmhdk218f3pq6" path="res://Art/Weapons/Coin/coin3.png" id="3_abjvq"]
+[ext_resource type="AudioStream" uid="uid://cafiuti57wg62" path="res://Audio/Weapons/Coin/flick.wav" id="5_abjvq"]
+[ext_resource type="Texture2D" uid="uid://c46oujf05mf6" path="res://Art/Light Textures/neutrallight.png" id="6_jt7og"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jt7og"]
 animations = [{
@@ -33,9 +35,16 @@ point_count = 2
 colors = PackedColorArray(0.90588236, 0.4862745, 0, 0, 1, 0.7294118, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_abjvq"]
-radius = 30.0
+radius = 50.0
 
-[node name="Coin" type="Area2D" unique_id=923837418]
+[sub_resource type="Curve" id="Curve_jt7og"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.50312006), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_auitr"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.7137255, 0, 1)
+
+[node name="Coin" type="Area2D" unique_id=216522277 groups=["Coin"]]
 script = ExtResource("1_fbuj7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1505379180]
@@ -55,3 +64,22 @@ end_cap_mode = 2
 shape = SubResource("CircleShape2D_abjvq")
 
 [node name="Tracer" type="Line2D" parent="." unique_id=1105071701]
+visible = false
+points = PackedVector2Array(0, 0, 0, 0)
+closed = true
+width_curve = SubResource("Curve_jt7og")
+gradient = SubResource("Gradient_auitr")
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=201545698]
+stream = ExtResource("5_abjvq")
+autoplay = true
+bus = &"Weapons"
+
+[node name="Flash" type="PointLight2D" parent="." unique_id=324713383]
+visible = false
+color = Color(1, 1, 0.21568628, 1)
+shadow_enabled = true
+texture = ExtResource("6_jt7og")
+texture_scale = 10.0

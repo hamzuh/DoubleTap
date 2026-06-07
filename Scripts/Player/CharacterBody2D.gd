@@ -117,6 +117,8 @@ func _input(event: InputEvent) -> void:
 		weapon.releaseTrigger()
 		speed = 300
 	if not hands_occupied:
+		if Input.is_action_just_pressed("Alt Fire"):
+			weapon.alt_fire()
 		if Input.is_action_just_pressed("Swap Weapon"):
 			weapon.swap()
 		if Input.is_action_just_pressed("Reload"):
