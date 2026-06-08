@@ -9,7 +9,10 @@ func _on_body_entered(body):
 			if hitbox.disabled == false:
 				body.hit(owner, hitbox.damage, hitbox.knockback, owner.instakill)
 				if hitbox == $LK:
-					owner.camera.shake(11, 0.15)
+					Globals.hitstop_activate(0.1, 0, true, 11, 0.15)
+					#owner.camera.shake(11, 0.15)
+					# This sucks major ass
+					await await get_tree().create_timer(0.1, true, false, true).timeout
 				owner.melee_audio.stream = hitbox.onHitSFX
 				owner.melee_audio.play()
 				#print(hitbox)

@@ -47,6 +47,7 @@ signal powerOn()
 func _ready() -> void:
 	state_machine.init(self, movement_animation)
 	$AudioListener2D.make_current()
+	Globals.hitstop.connect(_on_hitstop)
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
@@ -145,3 +146,8 @@ func _on_main_powerup_activate(startOrEnd: Variant, powerup_name: Variant) -> vo
 				instakill = false
 			"Double Points":
 				double_points = false
+
+func _on_hitstop(start, timescale, camera_shake, intensity, time):
+	movement_animation.speed_scale = timescale
+	if not start and camera_shake:
+		camera.shake(intensity, time)

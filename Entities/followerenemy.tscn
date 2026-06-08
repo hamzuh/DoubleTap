@@ -3,6 +3,25 @@
 [ext_resource type="Script" uid="uid://c5b3ape1fuatr" path="res://Scripts/followerEnemy.gd" id="1_swvey"]
 [ext_resource type="Texture2D" uid="uid://c24jw8vj2v1ya" path="res://Art/Enemies/enemy.png" id="2_sngmf"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_swvey"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sngmf")
+}],
+"loop": false,
+"name": &"death",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sngmf")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_7upyn"]
 radius = 17.0
 
@@ -15,8 +34,9 @@ z_index = 2
 motion_mode = 1
 script = ExtResource("1_swvey")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1503296724]
-texture = ExtResource("2_sngmf")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1559935375]
+sprite_frames = SubResource("SpriteFrames_swvey")
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1839065831]
 shape = SubResource("CircleShape2D_7upyn")
@@ -30,4 +50,5 @@ autostart = true
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1474520109]
 occluder = SubResource("OccluderPolygon2D_swvey")
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

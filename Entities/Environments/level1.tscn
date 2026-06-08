@@ -458,6 +458,7 @@ shape = SubResource("RectangleShape2D_ycv2e")
 occluder = SubResource("OccluderPolygon2D_pieet")
 
 [node name="DoorBuyable" type="Area2D" parent="." unique_id=1852761078]
+collision_layer = 16
 
 [node name="db1" type="CollisionShape2D" parent="DoorBuyable" unique_id=1998706202]
 position = Vector2(-200.5, -65.5)
@@ -527,41 +528,49 @@ position = Vector2(900, 900)
 [node name="Rooms" type="Node2D" parent="." unique_id=236383634]
 
 [node name="Spawn Room" type="Area2D" parent="Rooms" unique_id=499246318]
+collision_layer = 32
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Spawn Room" unique_id=1634844253]
 polygon = PackedVector2Array(-196, -206, -197, 496, 743, 499, 743, -206)
 
 [node name="First Corridor" type="Area2D" parent="Rooms" unique_id=833240900]
+collision_layer = 32
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/First Corridor" unique_id=780900713]
 polygon = PackedVector2Array(-851, -205, -853, 74, -199, 73, -200, -208)
 
 [node name="C Room" type="Area2D" parent="Rooms" unique_id=744182325]
+collision_layer = 32
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/C Room" unique_id=1321076364]
 polygon = PackedVector2Array(-196, 76, -1006, 74, -1003, 1009, -205, 1007)
 
 [node name="Bunk Room" type="Area2D" parent="Rooms" unique_id=766075443]
+collision_layer = 32
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Bunk Room" unique_id=489609488]
 polygon = PackedVector2Array(-200, 500, -202, 1004, 1009, 1006, 1004, 501)
 
 [node name="Power Room" type="Area2D" parent="Rooms" unique_id=70561200]
+collision_layer = 32
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Power Room" unique_id=1912196098]
 polygon = PackedVector2Array(742, -203, 743, 501, 1018, 499, 1007, -203)
 
 [node name="The Great Outdoors" type="Area2D" parent="Rooms" unique_id=85180377]
+collision_layer = 32
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/The Great Outdoors" unique_id=2059124507]
 polygon = PackedVector2Array(-396, -211, 1013, -204, 1003, -747, -28, -743, -29, -1008, -398, -1008)
 
 [node name="Hell Shed" type="Area2D" parent="Rooms" unique_id=2055327701]
+collision_layer = 32
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Hell Shed" unique_id=1632451148]
 polygon = PackedVector2Array(-27, -1008, -27, -746, 1005, -746, 1004, -1009)
 
 [node name="Surprise!" type="Area2D" parent="Rooms" unique_id=1589319768]
+collision_layer = 32
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Surprise!" unique_id=2128569668]
 polygon = PackedVector2Array(-396, -211, -401, -1012, -1004, -1002, -1005, -210)
@@ -591,6 +600,7 @@ occluder = SubResource("OccluderPolygon2D_nauge")
 
 [node name="Power Switch" type="Area2D" parent="." unique_id=858898078]
 position = Vector2(950, 150)
+collision_layer = 16
 
 [node name="Sprite2D" type="Sprite2D" parent="Power Switch" unique_id=1065267746]
 scale = Vector2(0.05, 0.05)

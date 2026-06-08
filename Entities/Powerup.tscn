@@ -8,6 +8,7 @@
 size = Vector2(100, 100)
 
 [node name="Powerup" type="Area2D" unique_id=1413027866]
+collision_layer = 8
 script = ExtResource("1_t7m5g")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=569697315]

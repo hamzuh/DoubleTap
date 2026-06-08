@@ -27,6 +27,7 @@ buses/default_bus_layout="uid://le67uakjy4xq"
 [autoload]
 
 Globals="*uid://dvhsypivafdlc"
+Debug_Helpers="uid://bfbiahn2y2sid"
 
 [display]
 
@@ -109,3 +110,17 @@ Reload={
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":4,"axis_value":1.0,"script":null)
 ]
 }
+debug_money={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":79,"key_label":0,"unicode":111,"location":0,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Level"
+2d_physics/layer_3="Enemies"
+2d_physics/layer_4="Powerup"
+2d_physics/layer_5="Interactable Zones"
+2d_physics/layer_6="Individual Rooms"

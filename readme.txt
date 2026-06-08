@@ -7,6 +7,11 @@ in 2D, so allow the player to attain a crazy level of power.
 Emphasise the perfect run. One completely independent mode where all is gained or lost in one playthrough.
 
 TO DO:
+	- Add debug functions for opening doors and giving money
+		- Easier testing
+		- Maybe in the autoload instead of the player directly
+			- Separate autoload file...
+	- Finish organising colliders into layers and masks
 	- Despawn Powerups after 10 seconds *
 	- Fix enemy following variation on player position
 		- If the varied position is through a wall the enemy will go the wrong way
@@ -20,6 +25,14 @@ TO DO:
 			- Give points to player directly
 		- Fire Sale
 	- VFX
+		- Enemy Animations
+			- Idle
+			- Walk
+			- Regular death
+			- Nuke death
+			- Surprise
+				- on hitstop
+		- Lerp to hitstop slowdown?
 		- Who doesn't love some cray cray UI (LERP)
 		- Gun smoke
 		- Improve Muzzle Flash

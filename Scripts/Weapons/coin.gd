@@ -14,22 +14,20 @@ var shot = false
 
 func _physics_process(delta: float) -> void:
 	if active >= 0:
-		position += direction * speed
-		active -= delta
+		position += direction * speed * Globals.speed_scale
+		active -= delta * Globals.speed_scale
 	else:
 		queue_free()
-	if tracerCooldown > 0:
-		speed = 0
+	if tracerCooldown >= 0:
 		tracerCooldown -= delta
 		if tracerCooldown < 0.15:
 			audioPlayer.stop()
 	else:
 		if shot:
-			hitter.camera.shake(25, 0.3)
+			#hitter.camera.shake(25, 0.3)
 			shot = false
 			audioPlayer.stream = load("res://Audio/Weapons/Coin/superhit.wav")
 			audioPlayer.play()
-		speed = 7
 		tracer.visible = false
 		flash.visible = false
 	
@@ -50,6 +48,7 @@ func hit(killer, weapon, damage, knockback, instakill):
 		flash.visible = true
 		shot = true
 		tracerCooldown = 0.3
+		Globals.hitstop_activate(0.3, 0, true, 25, 0.3)
 	audioPlayer.stream = load("res://Audio/Weapons/Coin/coinhit.wav")
 	audioPlayer.play()
 		

@@ -65,9 +65,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if cooldown > 0:
-		cooldown -= delta
+		cooldown -= delta * Globals.speed_scale
 	if tracerCooldown > 0:
-		tracerCooldown -= delta
+		tracerCooldown -= delta * Globals.speed_scale
 	else:
 		tracer.visible = false
 		muzzleFlash.visible = false
@@ -85,10 +85,11 @@ func fire():
 		# Maybe change this to take info from resource and increase intensity over time for automatics
 		get_parent().camera.shake(8, 0.08)
 		ray.target_position = Vector2(1000, 0).rotated(randf_range(-PI/2, PI/2) * spread)
+		tracer.set_point_position(0, get_parent().position)
 		if ray.is_colliding():
 			if ray.get_collider().is_in_group("Coin"):
 				ray.get_collider().hit(get_parent(), weaponName, damage, knockback, get_parent().instakill)
-				tracer.set_point_position(1, to_local(ray.get_collider().position))
+				tracer.set_point_position(1, ray.get_collider().position)
 				tracer.gradient.set_color(1, Color(1, 1, 1))
 				tracer.width_curve.set_point_value(0, 1)
 				#print("ting")
@@ -97,9 +98,10 @@ func fire():
 				tracer.gradient.set_color(1, Color(1, 0.71, 0))
 				if ray.get_collider().is_in_group("Enemy"):
 					ray.get_collider().hit(get_parent(), damage, knockback, get_parent().instakill)
-				tracer.set_point_position(1, to_local(ray.get_collision_point()))
+				tracer.set_point_position(1, ray.get_collision_point())
 		else:
-			tracer.set_point_position(1, ray.target_position)
+			tracer.set_point_position(1, (get_parent().position + (ray.target_position.rotated(get_parent().rotation))))
+			print(ray.target_position)
 		muzzleFlash.visible = true
 		tracer.visible = true
 		tracerCooldown = 0.02
