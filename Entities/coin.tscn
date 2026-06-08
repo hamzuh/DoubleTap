@@ -79,7 +79,8 @@ bus = &"Weapons"
 
 [node name="Flash" type="PointLight2D" parent="." unique_id=324713383]
 visible = false
-color = Color(1, 1, 0.21568628, 1)
+color = Color(1, 0.83137256, 0.36078432, 1)
+energy = 1.5
 shadow_enabled = true
 texture = ExtResource("6_jt7og")
-texture_scale = 10.0
+texture_scale = 35.0
