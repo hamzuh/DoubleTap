@@ -3,6 +3,8 @@ extends Area2D
 @onready var tracer: Line2D = $Tracer
 @onready var flash: PointLight2D = $Flash
 @onready var audioPlayer = $AudioStreamPlayer2D
+@onready var sprite = $AnimatedSprite2D
+@onready var particles = $GPUParticles2D
 
 var hitter: Node
 var speed: float = 7
@@ -12,6 +14,10 @@ var tracerCooldown: float = 0
 var active: float = 4
 var shot = false
 
+func _ready() -> void:
+	Globals.hitstop.connect(_on_hitstop)
+	sprite.rotation = direction.angle()
+
 func _physics_process(delta: float) -> void:
 	if active >= 0:
 		position += direction * speed * Globals.speed_scale
@@ -20,14 +26,17 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 	if tracerCooldown >= 0:
 		tracerCooldown -= delta
-		if tracerCooldown < 0.15:
+		if tracerCooldown < 0.2:
 			audioPlayer.stop()
 	else:
 		if shot:
 			#hitter.camera.shake(25, 0.3)
 			shot = false
+			sprite.visible = false
+			speed = 0
 			audioPlayer.stream = load("res://Audio/Weapons/Coin/superhit.wav")
 			audioPlayer.play()
+			particles.emitting = true
 		tracer.visible = false
 		flash.visible = false
 	
@@ -48,7 +57,9 @@ func hit(killer, weapon, damage, knockback, instakill):
 		flash.visible = true
 		shot = true
 		tracerCooldown = 0.3
-		Globals.hitstop_activate(0.3, 0, true, 25, 0.3)
+		Globals.hitstop_activate(0.3, 0, true, 20, 0.5)
 	audioPlayer.stream = load("res://Audio/Weapons/Coin/coinhit.wav")
 	audioPlayer.play()
 		
+func _on_hitstop(start, timescale, camera_shake, intensity, time):
+	sprite.speed_scale = timescale

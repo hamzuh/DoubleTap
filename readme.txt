@@ -7,6 +7,10 @@ in 2D, so allow the player to attain a crazy level of power.
 Emphasise the perfect run. One completely independent mode where all is gained or lost in one playthrough.
 
 TO DO:
+	- Set all texture import to nearest
+	- Coin bugfixes
+		- It stays after being shot and can recollide
+		- Trail needs work (maybe not unshaded?)
 	- Add debug functions for opening doors and giving money
 		- Easier testing
 		- Maybe in the autoload instead of the player directly

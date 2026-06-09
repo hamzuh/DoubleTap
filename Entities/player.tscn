@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c4n86phsw5tin" path="res://Art/Player/attack/attack2/rp1.png" id="12_hx8w8"]
 [ext_resource type="Texture2D" uid="uid://6a6gawwm7yxq" path="res://Art/Player/attack/attack2/rp2.png" id="13_478ti"]
 [ext_resource type="Texture2D" uid="uid://c4jn3jgfey4dv" path="res://Art/Player/attack/attack2/rp3.png" id="14_o5x8e"]
-[ext_resource type="Script" uid="uid://cug4q5fxn1kbm" path="res://Scripts/camera.gd" id="14_qbc8u"]
+[ext_resource type="Script" uid="uid://cug4q5fxn1kbm" path="res://Scripts/Misc/camera.gd" id="14_qbc8u"]
 [ext_resource type="Texture2D" uid="uid://b1ovqkmraylvi" path="res://Art/Player/attack/attack3/k1.png" id="16_x6csf"]
 [ext_resource type="Texture2D" uid="uid://bnv214jwurwop" path="res://Art/Player/attack/attack3/k2.png" id="17_o0pwu"]
 [ext_resource type="Texture2D" uid="uid://ckj4gbq2aitwq" path="res://Art/Player/attack/attack3/k3.png" id="18_cv7bs"]

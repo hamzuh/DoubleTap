@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ch8hesqmfncmk"]
 
-[ext_resource type="Script" uid="uid://b8ni4hhmkak4l" path="res://Scripts/HUD.gd" id="1_uhgrr"]
+[ext_resource type="Script" uid="uid://b8ni4hhmkak4l" path="res://Scripts/Misc/HUD.gd" id="1_uhgrr"]
 [ext_resource type="FontFile" uid="uid://c4ps1ss3rbhvv" path="res://Fonts/UbuntuSansMono-VariableFont_wght.ttf" id="2_6hjtx"]
 [ext_resource type="Texture2D" uid="uid://ct4lqi2i06ctg" path="res://Art/Powerups/instakill.png" id="3_ohl3i"]
 [ext_resource type="Texture2D" uid="uid://bkjg2u6eonf7l" path="res://Art/Powerups/doublepoints.png" id="4_q78pt"]

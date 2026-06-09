@@ -36,6 +36,7 @@ var mag_size: int
 # Coin variables
 var coin = preload("res://Entities/coin.tscn")
 var coinSpread = 0.1
+var coinCooldown: float = 0
 
 func _ready() -> void:
 	stats = weapon_type.duplicate()
@@ -66,6 +67,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if cooldown > 0:
 		cooldown -= delta * Globals.speed_scale
+	if coinCooldown > 0:
+		coinCooldown -= delta * Globals.speed_scale
 	if tracerCooldown > 0:
 		tracerCooldown -= delta * Globals.speed_scale
 	else:
@@ -111,11 +114,13 @@ func fire():
 
 func alt_fire():
 	# Add cooldown timer or blood resource thing
-	var coinSpawn = coin.instantiate()
-	coinSpawn.hitter = get_parent()
-	coinSpawn.position = get_parent().position
-	coinSpawn.direction = Vector2(1, 0).rotated(get_parent().rotation).rotated(randf_range(-PI/2, PI/2) * coinSpread)
-	Globals.base.add_child(coinSpawn)
+	if coinCooldown <= 0:
+		var coinSpawn = coin.instantiate()
+		coinSpawn.hitter = get_parent()
+		coinSpawn.position = get_parent().position
+		coinSpawn.direction = Vector2(1, 0).rotated(get_parent().rotation).rotated(randf_range(-PI/2, PI/2) * coinSpread)
+		Globals.base.add_child(coinSpawn)
+		coinCooldown = 0.5
 
 func canFire():
 	if ammo_dict[weaponName][0] > 0:
