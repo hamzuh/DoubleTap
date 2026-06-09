@@ -13,19 +13,22 @@ var direction: Vector2
 var range: float = 10000
 var tracerCooldown: float = 0
 var active: float = 0
-var active_max: float = 1.5
+var active_max: float = 2.5
 var shot = false
 var hitted: bool = false
+var traversed: bool = false
 
 func _ready() -> void:
 	Globals.hitstop.connect(_on_hitstop)
 	sprite.rotation = direction.angle()
+	audioPlayer.stream = load("res://Audio/Weapons/Coin/Coinflip.ogg")
+	audioPlayer.play()
 
 func _physics_process(delta: float) -> void:
-	var new_scale = 1.5 * (2.5 * sin((2 * PI) / (2*active_max) * active))
+	var new_scale = 1.5 * (2 * sin((2 * PI) / (2*active_max) * active))
 	sprite.scale = Vector2(new_scale, new_scale)
 	sprite.speed_scale = (3-(2.7*sin((2 * PI) / (2*active_max) * active))) * Globals.speed_scale
-	speed = 6 - (3.5*sin((2 * PI) / (2*active_max) * active))
+	speed = 7 - (6*sin((2 * PI) / (2*active_max) * active))
 	if active <= active_max:
 		position += direction * speed * Globals.speed_scale
 		active += delta * Globals.speed_scale
@@ -35,7 +38,9 @@ func _physics_process(delta: float) -> void:
 	if tracerCooldown >= 0:
 		tracerCooldown -= delta
 		if tracerCooldown < 0.2:
-			audioPlayer.stop()
+			# Probably a better way to do this
+			if audioPlayer.stream == load("res://Audio/Weapons/Coin/coinhit.wav"):
+				audioPlayer.stop()
 	else:
 		if shot:
 			#hitter.camera.shake(25, 0.3)
@@ -51,7 +56,21 @@ func _physics_process(delta: float) -> void:
 		flash.visible = false
 	
 func hit(killer, weapon, damage, knockback, instakill):
+	traversed = true
 	if not hitted:
+		# Doesn't work need to flip hitted earlier
+		# Syntax for filter is right though
+		var next_coin = get_tree().get_nodes_in_group("Coin").filter(func(check_coin): return not check_coin.traversed).pick_random()
+		if next_coin:
+			next_coin.hit(killer, weapon, damage, knockback, true)
+			tracer.set_point_position(1, to_local(next_coin.position))
+			tracer.visible = true
+			flash.visible = true
+			shot = true
+			tracerCooldown = 0.35
+			Globals.hitstop_activate(0.35, 0, true, 10, 0.3)
+			hitted = true
+			return
 		# Called when bullet hits this
 		# Kertwang into nearest enemy
 		# Also remember to shoot a ray to the enemy to see if it's valid

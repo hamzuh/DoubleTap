@@ -1,7 +1,7 @@
 extends Line2D
 
 var pos_queue: Array
-var max_length: int = 30
+var max_length: int = 20
 var paused: bool = false
 var normal_width = 10
 

@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://clfned3snocal" path="res://Art/Weapons/Coin/coin1.png" id="1_y55b1"]
 [ext_resource type="Texture2D" uid="uid://dtsg1gu3ux1hl" path="res://Art/Weapons/Coin/coin2.png" id="2_fbuj7"]
 [ext_resource type="Texture2D" uid="uid://cmhdk218f3pq6" path="res://Art/Weapons/Coin/coin3.png" id="3_abjvq"]
-[ext_resource type="AudioStream" uid="uid://cafiuti57wg62" path="res://Audio/Weapons/Coin/flick.wav" id="5_abjvq"]
 [ext_resource type="Script" uid="uid://ixxouilygafe" path="res://Scripts/Misc/trail.gd" id="5_dld0u"]
 [ext_resource type="Texture2D" uid="uid://c46oujf05mf6" path="res://Art/Light Textures/neutrallight.png" id="6_jt7og"]
+[ext_resource type="AudioStream" uid="uid://cpwe33bon1yso" path="res://Audio/Weapons/Coin/Coinflip.ogg" id="6_sbcks"]
 [ext_resource type="Texture2D" uid="uid://d24lsga7gj0yp" path="res://Art/Weapons/Coin/sparkparticlefat.png" id="8_sbcks"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jt7og"]
@@ -30,11 +30,11 @@ animations = [{
 }]
 
 [sub_resource type="Curve" id="Curve_y55b1"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.24622983), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.49777126), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_sbcks"]
-colors = PackedColorArray(1, 1, 1, 0.70980394, 1, 1, 1, 0.13725491)
+colors = PackedColorArray(1, 1, 1, 0.6392157, 1, 1, 1, 0.24313726)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_abjvq"]
 radius = 50.0
@@ -93,9 +93,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=201545698]
-stream = ExtResource("5_abjvq")
-autoplay = true
-bus = &"Weapons"
+stream = ExtResource("6_sbcks")
 
 [node name="Flash" type="PointLight2D" parent="." unique_id=324713383]
 visible = false

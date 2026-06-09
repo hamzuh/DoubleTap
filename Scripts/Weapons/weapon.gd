@@ -120,7 +120,7 @@ func alt_fire():
 		coinSpawn.position = get_parent().position
 		coinSpawn.direction = Vector2(1, 0).rotated(get_parent().rotation).rotated(randf_range(-PI/2, PI/2) * coinSpread)
 		Globals.base.add_child(coinSpawn)
-		coinCooldown = 0.5
+		coinCooldown = 0.35
 
 func canFire():
 	if ammo_dict[weaponName][0] > 0:
