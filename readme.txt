@@ -7,6 +7,8 @@ in 2D, so allow the player to attain a crazy level of power.
 Emphasise the perfect run. One completely independent mode where all is gained or lost in one playthrough.
 
 TO DO:
+	- Hitstop function should return something / call back to the caller when it's over
+		- After hitstop sfx etc.
 	- Set all texture import to nearest
 	- Coin bugfixes
 		- It stays after being shot and can recollide

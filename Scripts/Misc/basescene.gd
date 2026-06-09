@@ -16,6 +16,8 @@ var enemies_to_spawn: int
 var powerup = preload("res://Entities/Powerup.tscn")
 signal powerup_activate(startOrEnd, powerup_name)
 
+@onready var lights = $CanvasModulate
+
 @onready var levelSFX: Node = $LevelSFX
 @onready var roundStartFX: AudioStream = load("res://Audio/Environment/roundstart.wav")
 @onready var roundEndFX: AudioStream = load("res://Audio/Environment/roundend.wav")
@@ -76,7 +78,7 @@ func _on_round_timer_timeout() -> void:
 	levelSFX.play()
 
 func _on_player_power_on() -> void:
-	$CanvasModulate.visible = false
+	lights.visible = false
 
 # Might be worth splitting powerup stuff into its own node and script
 # Powerup Manager, etc.

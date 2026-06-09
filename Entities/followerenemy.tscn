@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://bjoeob5rnrna2"]
 
 [ext_resource type="Script" uid="uid://c5b3ape1fuatr" path="res://Scripts/Enemies/followerEnemy.gd" id="1_swvey"]
+[ext_resource type="Texture2D" uid="uid://duji3f0iq6snk" path="res://Art/Enemies/enemydead.png" id="2_krt1g"]
 [ext_resource type="Texture2D" uid="uid://c24jw8vj2v1ya" path="res://Art/Enemies/enemy.png" id="2_sngmf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_swvey"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_sngmf")
+"texture": ExtResource("2_krt1g")
 }],
 "loop": false,
 "name": &"death",
@@ -36,7 +37,7 @@ script = ExtResource("1_swvey")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1559935375]
 sprite_frames = SubResource("SpriteFrames_swvey")
-animation = &"death"
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1839065831]
 shape = SubResource("CircleShape2D_7upyn")
