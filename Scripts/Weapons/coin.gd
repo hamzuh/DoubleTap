@@ -6,6 +6,7 @@ extends Area2D
 @onready var sprite = $AnimatedSprite2D
 @onready var particles = $GPUParticles2D
 @onready var trail = $Trail
+@onready var whistle = $Whistle
 
 var hitter: Node
 var speed: float = 6
@@ -23,8 +24,10 @@ func _ready() -> void:
 	sprite.rotation = direction.angle()
 	audioPlayer.stream = load("res://Audio/Weapons/Coin/Coinflip.ogg")
 	audioPlayer.play()
+	whistle.play()
 
 func _physics_process(delta: float) -> void:
+	whistle.pitch_scale += delta * 0.1
 	var new_scale = 1.5 * (2 * sin((2 * PI) / (2*active_max) * active))
 	sprite.scale = Vector2(new_scale, new_scale)
 	sprite.speed_scale = (3-(2.7*sin((2 * PI) / (2*active_max) * active))) * Globals.speed_scale
@@ -57,6 +60,7 @@ func _physics_process(delta: float) -> void:
 	
 func hit(killer, weapon, damage, knockback, instakill):
 	traversed = true
+	whistle.stop()
 	if not hitted:
 		# Doesn't work need to flip hitted earlier
 		# Syntax for filter is right though

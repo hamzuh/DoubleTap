@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bso26q3ahvonl"]
+
+[ext_resource type="Script" uid="uid://c21p3d1jy34px" path="res://Scripts/Enemies/EnemyOfTheStateMain.gd" id="1_1c3vs"]
+[ext_resource type="Texture2D" uid="uid://duji3f0iq6snk" path="res://Art/Enemies/enemydead.png" id="2_8yhn4"]
+[ext_resource type="Texture2D" uid="uid://c24jw8vj2v1ya" path="res://Art/Enemies/enemy.png" id="3_je4vh"]
+[ext_resource type="Script" uid="uid://jlbwwim7iocr" path="res://Scripts/Player/State Machine.gd" id="4_8yhn4"]
+[ext_resource type="Script" uid="uid://30c2ovus8cbr" path="res://Scripts/Enemies/States/Idle_Enemy.gd" id="5_je4vh"]
+[ext_resource type="Script" uid="uid://o8hkw82bw56r" path="res://Scripts/Enemies/States/Chasing.gd" id="6_ro5jc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_swvey"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8yhn4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8yhn4")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_je4vh")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7upyn"]
+radius = 17.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_swvey"]
+cull_mode = 1
+polygon = PackedVector2Array(-18, -18, -18, 18, 18, 18, 18, -18)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1914469750 groups=["Enemy"]]
+z_index = 2
+motion_mode = 1
+script = ExtResource("1_1c3vs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1559935375]
+sprite_frames = SubResource("SpriteFrames_swvey")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1839065831]
+shape = SubResource("CircleShape2D_7upyn")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=390726249]
+
+[node name="Timer" type="Timer" parent="." unique_id=951260271]
+wait_time = 0.2
+autostart = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1474520109]
+occluder = SubResource("OccluderPolygon2D_swvey")
+
+[node name="State Machine" type="Node" parent="." unique_id=475593235]
+script = ExtResource("4_8yhn4")
+
+[node name="Idle" type="Node" parent="State Machine" unique_id=257172488]
+script = ExtResource("5_je4vh")
+
+[node name="Chasing" type="Node" parent="State Machine" unique_id=1570814687]
+script = ExtResource("6_ro5jc")
+
+[node name="Swiping" type="Node" parent="State Machine" unique_id=2022811377]
+
+[node name="Stunned" type="Node" parent="State Machine" unique_id=1558844616]
+
+[node name="Knocked" type="Node" parent="State Machine" unique_id=2032481752]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

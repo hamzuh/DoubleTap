@@ -7,12 +7,15 @@ in 2D, so allow the player to attain a crazy level of power.
 Emphasise the perfect run. One completely independent mode where all is gained or lost in one playthrough.
 
 TO DO:
+	- VITAL:
+		- Finish enemy state machine
+			- Make player take damage on enemy hit
 	- Hitstop function should return something / call back to the caller when it's over
 		- After hitstop sfx etc.
 	- Set all texture import to nearest
 	- Coin bugfixes
 		- It stays after being shot and can recollide
-		- Trail needs work (maybe not unshaded?)
+			- Maybe don't do this, copy ultrakill and random bounce the shot
 	- Add debug functions for opening doors and giving money
 		- Easier testing
 		- Maybe in the autoload instead of the player directly
@@ -31,13 +34,19 @@ TO DO:
 			- Give points to player directly
 		- Fire Sale
 	- VFX
+		- Make tracer it's own class, spawn as child when needed
+			- Useful for concurrent tracers
+			- Ultrakill start wide and then thin to nothing
 		- Enemy Animations
 			- Idle
 			- Walk
 			- Regular death
 			- Nuke death
 			- Surprise
-				- on hitstop
+				- on nearby event, could look funny during hitstop
+			- Stun
+			- Spawning
+			- Banging / ripping barriers
 		- Lerp to hitstop slowdown?
 		- Who doesn't love some cray cray UI (LERP)
 		- Gun smoke
