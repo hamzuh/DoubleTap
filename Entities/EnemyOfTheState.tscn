@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://jlbwwim7iocr" path="res://Scripts/Player/State Machine.gd" id="4_8yhn4"]
 [ext_resource type="Script" uid="uid://30c2ovus8cbr" path="res://Scripts/Enemies/States/Idle_Enemy.gd" id="5_je4vh"]
 [ext_resource type="Script" uid="uid://o8hkw82bw56r" path="res://Scripts/Enemies/States/Chasing.gd" id="6_ro5jc"]
+[ext_resource type="Script" uid="uid://w4ob2j4koekg" path="res://Scripts/Enemies/States/Swiping.gd" id="7_26cqg"]
+[ext_resource type="Script" uid="uid://bd61bexj678fd" path="res://Scripts/Enemies/States/Knockback.gd" id="8_ajv3r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_swvey"]
 animations = [{
@@ -14,11 +16,56 @@ animations = [{
 "texture": ExtResource("2_8yhn4")
 }, {
 "duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
 "texture": ExtResource("2_8yhn4")
 }],
 "loop": false,
 "name": &"death",
-"speed": 10.0
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_je4vh")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_je4vh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8yhn4")
+}],
+"loop": false,
+"name": &"knocked_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8yhn4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_je4vh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8yhn4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_je4vh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8yhn4")
+}],
+"loop": false,
+"name": &"swipe",
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -36,14 +83,14 @@ radius = 17.0
 cull_mode = 1
 polygon = PackedVector2Array(-18, -18, -18, 18, 18, 18, 18, -18)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1914469750 groups=["Enemy"]]
+[node name="StateEnemy" type="CharacterBody2D" unique_id=1914469750 groups=["Enemy"]]
 z_index = 2
 motion_mode = 1
 script = ExtResource("1_1c3vs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1559935375]
 sprite_frames = SubResource("SpriteFrames_swvey")
-animation = &"walk"
+animation = &"knocked_back"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1839065831]
 shape = SubResource("CircleShape2D_7upyn")
@@ -57,20 +104,34 @@ autostart = true
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1474520109]
 occluder = SubResource("OccluderPolygon2D_swvey")
 
-[node name="State Machine" type="Node" parent="." unique_id=475593235]
+[node name="State Machine" type="Node" parent="." unique_id=475593235 node_paths=PackedStringArray("start_state")]
 script = ExtResource("4_8yhn4")
+start_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="State Machine" unique_id=257172488]
+[node name="Idle" type="Node" parent="State Machine" unique_id=257172488 node_paths=PackedStringArray("chasing_state", "swiping_state")]
 script = ExtResource("5_je4vh")
+chasing_state = NodePath("../Chasing")
+swiping_state = NodePath("../Swiping")
+animation_name = "idle"
 
-[node name="Chasing" type="Node" parent="State Machine" unique_id=1570814687]
+[node name="Chasing" type="Node" parent="State Machine" unique_id=1570814687 node_paths=PackedStringArray("idle_state", "swiping_state")]
 script = ExtResource("6_ro5jc")
+idle_state = NodePath("../Idle")
+swiping_state = NodePath("../Swiping")
+animation_name = "walk"
 
-[node name="Swiping" type="Node" parent="State Machine" unique_id=2022811377]
+[node name="Swiping" type="Node" parent="State Machine" unique_id=2022811377 node_paths=PackedStringArray("idle_state", "chasing_state")]
+script = ExtResource("7_26cqg")
+idle_state = NodePath("../Idle")
+chasing_state = NodePath("../Chasing")
+animation_name = "swipe"
 
-[node name="Stunned" type="Node" parent="State Machine" unique_id=1558844616]
-
-[node name="Knocked" type="Node" parent="State Machine" unique_id=2032481752]
+[node name="Knockback" type="Node" parent="State Machine" unique_id=1408865347 node_paths=PackedStringArray("idle_state")]
+script = ExtResource("8_ajv3r")
+idle_state = NodePath("../Idle")
+animation_name = "knocked_back"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="State Machine/Swiping" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="State Machine/Chasing" method="_on_timer_timeout"]

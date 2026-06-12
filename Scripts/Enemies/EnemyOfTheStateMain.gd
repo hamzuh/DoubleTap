@@ -32,8 +32,6 @@ signal enemy_dead(position)
 
 func _ready() -> void:
 	state_machine.init(self, animations)
-	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
-	set_movement_target(Player.position + variation)
 	Globals.hitstop.connect(_on_hitstop)
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -45,20 +43,19 @@ func _physics_process(delta: float) -> void:
 func _process(delta):
 	state_machine.process_frame(delta)
 
-###
-
 func hit(killer, damage, knockback, instakill):
-	if instakill:
+	if instakill or health <= 0:
 		die(killer)
 	health -= damage
 	print(health)
 	killer.increase_points(10)
-	if health <= 0:
-		die(killer)
 	if knockback:
 		knockdirect = killer.position.direction_to(self.position)
 		knockforce = knockback
-		knock = true
+		state_machine.change_state($"State Machine/Knockback")
+		#knockdirect = killer.position.direction_to(self.position)
+		#knockforce = knockback
+		#knock = true
 
 func die(killer):
 	killer.increase_points(50)
@@ -71,64 +68,64 @@ func die(killer):
 	sprite.play("death")
 ###
 
-func set_movement_target(movement_target: Vector2):
-	navigation_agent.set_target_position(movement_target)
-
-func _physics_process(delta):
-	if knock:
-		velocity = knockdirect * knockforce * Globals.speed_scale
-		move_and_slide()
-		knockforce -= 1000 * delta * Globals.speed_scale
-		if knockforce <= 0:
-			knock = false
-		return
-	#sprite.rotation = velocity.angle()
-	if dead:
-		return
-	if Globals.speed_scale:
-		sprite.rotation = lerp_angle(sprite.rotation, velocity.angle(), 0.08)
-		occluder.rotation = sprite.rotation
-	
-	if position.distance_to(Player.position) >= 1000:
-		navtimer.wait_time = 0.5
-	elif position.distance_to(Player.position) >= 500:
-		navtimer.wait_time = 0.25
-	elif position.distance_to(Player.position) >= 150:
-		navtimer.wait_time = 0.15
-	# If the enemy is closer than 200 units to the player...
-	else:
-		# Shoot a ray from the enemy to the player...
-		var space_state = get_world_2d().direct_space_state
-		var query = PhysicsRayQueryParameters2D.create(global_position, Player.position)
-		query.exclude = [self, Player]
-		var result = space_state.intersect_ray(query)
-		# If the ray detects no wall in the way...
-		if !(result.get("collider") == Level):
-			# Move straight towards the player
-			velocity = position.direction_to(Player.position) * speed * Globals.speed_scale
-			move_and_slide()
-			return
-	# If the enemy is super close / in swiping range they should attempt an attack
-	
-	# Do not query when the map has never synchronized and is empty.
-	if NavigationServer2D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
-		return
-	if navigation_agent.is_navigation_finished():
-		return
-
-	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
-	var new_velocity: Vector2 = global_position.direction_to(next_path_position) * speed * Globals.speed_scale
-	if navigation_agent.avoidance_enabled:
-		navigation_agent.set_velocity(new_velocity)
-	else:
-		_on_velocity_computed(new_velocity)
-
-func _on_velocity_computed(safe_velocity: Vector2):
-	velocity = safe_velocity
-	move_and_slide()
-	
-func _on_timer_timeout() -> void:
-	set_movement_target(Player.position + variation)
+#func set_movement_target(movement_target: Vector2):
+	#navigation_agent.set_target_position(movement_target)
+#
+#func _physics_process(delta):
+	#if knock:
+		#velocity = knockdirect * knockforce * Globals.speed_scale
+		#move_and_slide()
+		#knockforce -= 1000 * delta * Globals.speed_scale
+		#if knockforce <= 0:
+			#knock = false
+		#return
+	##sprite.rotation = velocity.angle()
+	#if dead:
+		#return
+	#if Globals.speed_scale:
+		#sprite.rotation = lerp_angle(sprite.rotation, velocity.angle(), 0.08)
+		#occluder.rotation = sprite.rotation
+	#
+	#if position.distance_to(Player.position) >= 1000:
+		#navtimer.wait_time = 0.5
+	#elif position.distance_to(Player.position) >= 500:
+		#navtimer.wait_time = 0.25
+	#elif position.distance_to(Player.position) >= 150:
+		#navtimer.wait_time = 0.15
+	## If the enemy is closer than 200 units to the player...
+	#else:
+		## Shoot a ray from the enemy to the player...
+		#var space_state = get_world_2d().direct_space_state
+		#var query = PhysicsRayQueryParameters2D.create(global_position, Player.position)
+		#query.exclude = [self, Player]
+		#var result = space_state.intersect_ray(query)
+		## If the ray detects no wall in the way...
+		#if !(result.get("collider") == Level):
+			## Move straight towards the player
+			#velocity = position.direction_to(Player.position) * speed * Globals.speed_scale
+			#move_and_slide()
+			#return
+	## If the enemy is super close / in swiping range they should attempt an attack
+	#
+	## Do not query when the map has never synchronized and is empty.
+	#if NavigationServer2D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
+		#return
+	#if navigation_agent.is_navigation_finished():
+		#return
+#
+	#var next_path_position: Vector2 = navigation_agent.get_next_path_position()
+	#var new_velocity: Vector2 = global_position.direction_to(next_path_position) * speed * Globals.speed_scale
+	#if navigation_agent.avoidance_enabled:
+		#navigation_agent.set_velocity(new_velocity)
+	#else:
+		#_on_velocity_computed(new_velocity)
+#
+#func _on_velocity_computed(safe_velocity: Vector2):
+	#velocity = safe_velocity
+	#move_and_slide()
+	#
+#func _on_timer_timeout() -> void:
+	#set_movement_target(Player.position + variation)
 
 func _on_hitstop(start, timescale, camera_shake, intensity, time):
 	sprite.speed_scale = timescale

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://ccangf6rukged"]
+
+[ext_resource type="Script" uid="uid://cqbcuiaqlxjsd" path="res://Scripts/Misc/test_scene.gd" id="1_l65f2"]
+[ext_resource type="PackedScene" uid="uid://bccv1ywb5dh7s" path="res://Entities/player.tscn" id="2_iqus1"]
+[ext_resource type="PackedScene" uid="uid://2vtemamcqq6h" path="res://Entities/Environments/level1.tscn" id="3_at7bd"]
+[ext_resource type="PackedScene" uid="uid://ch8hesqmfncmk" path="res://Misc/HUD.tscn" id="4_el1gj"]
+[ext_resource type="AudioStream" uid="uid://bxwihds4w2l86" path="res://Audio/Music/wesker.mp3" id="5_cdpb6"]
+[ext_resource type="PackedScene" uid="uid://bso26q3ahvonl" path="res://Entities/EnemyOfTheState.tscn" id="6_iqus1"]
+
+[node name="Main" type="Node" unique_id=612323886]
+script = ExtResource("1_l65f2")
+
+[node name="Player" parent="." unique_id=1698362834 instance=ExtResource("2_iqus1")]
+
+[node name="Level" parent="." unique_id=649146009 instance=ExtResource("3_at7bd")]
+
+[node name="HUD" parent="." unique_id=1278146990 instance=ExtResource("4_el1gj")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1816864950]
+stream = ExtResource("5_cdpb6")
+volume_db = -3.424
+autoplay = true
+bus = &"Music"
+
+[node name="Powerup Timers" type="Node" parent="." unique_id=710217961]
+
+[node name="DoublePoints" type="Timer" parent="Powerup Timers" unique_id=124251421]
+wait_time = 20.0
+one_shot = true
+
+[node name="FireSale" type="Timer" parent="Powerup Timers" unique_id=889261996]
+wait_time = 20.0
+one_shot = true
+
+[node name="Instakill" type="Timer" parent="Powerup Timers" unique_id=1899713156]
+wait_time = 20.0
+one_shot = true
+
+[node name="Enemy" parent="." unique_id=1914469750 instance=ExtResource("6_iqus1")]
+position = Vector2(383, -44)
+
+[connection signal="ammo_changed" from="Player" to="HUD" method="_on_player_ammo_changed"]
+[connection signal="buy_door" from="Player" to="Level" method="_on_player_buy_door"]
+[connection signal="money_changed" from="Player" to="HUD" method="_on_player_money_changed"]
+[connection signal="powerOn" from="Player" to="." method="_on_player_power_on"]
+[connection signal="powerOn" from="Player" to="Level" method="_on_player_power_on"]
+[connection signal="doorbuymessage" from="Level" to="Player" method="_on_level_doorbuymessage"]
+[connection signal="doorbuymessage" from="Level" to="HUD" method="_on_level_doorbuymessage"]
+[connection signal="powermessage" from="Level" to="Player" method="_on_level_powermessage"]
+[connection signal="powermessage" from="Level" to="HUD" method="_on_level_powermessage"]
+[connection signal="roomchange" from="Level" to="HUD" method="_on_level_roomchange"]
+[connection signal="timeout" from="Powerup Timers/DoublePoints" to="." method="_on_double_points_timeout"]
+[connection signal="timeout" from="Powerup Timers/FireSale" to="." method="_on_fire_sale_timeout"]
+[connection signal="timeout" from="Powerup Timers/Instakill" to="." method="_on_instakill_timeout"]
