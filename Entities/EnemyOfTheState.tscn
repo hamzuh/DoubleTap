@@ -4,10 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://duji3f0iq6snk" path="res://Art/Enemies/enemydead.png" id="2_8yhn4"]
 [ext_resource type="Texture2D" uid="uid://c24jw8vj2v1ya" path="res://Art/Enemies/enemy.png" id="3_je4vh"]
 [ext_resource type="Script" uid="uid://jlbwwim7iocr" path="res://Scripts/Player/State Machine.gd" id="4_8yhn4"]
+[ext_resource type="Texture2D" uid="uid://jvpf5gpagugt" path="res://Art/Enemies/enemyStun.png" id="4_hox7v"]
 [ext_resource type="Script" uid="uid://30c2ovus8cbr" path="res://Scripts/Enemies/States/Idle_Enemy.gd" id="5_je4vh"]
 [ext_resource type="Script" uid="uid://o8hkw82bw56r" path="res://Scripts/Enemies/States/Chasing.gd" id="6_ro5jc"]
 [ext_resource type="Script" uid="uid://w4ob2j4koekg" path="res://Scripts/Enemies/States/Swiping.gd" id="7_26cqg"]
 [ext_resource type="Script" uid="uid://bd61bexj678fd" path="res://Scripts/Enemies/States/Knockback.gd" id="8_ajv3r"]
+[ext_resource type="Script" uid="uid://cta3l40qqn8fd" path="res://Scripts/Enemies/States/Stunned.gd" id="9_tnm1v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_swvey"]
 animations = [{
@@ -45,6 +47,14 @@ animations = [{
 }],
 "loop": false,
 "name": &"knocked_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hox7v")
+}],
+"loop": true,
+"name": &"stunned",
 "speed": 5.0
 }, {
 "frames": [{
@@ -131,7 +141,18 @@ script = ExtResource("8_ajv3r")
 idle_state = NodePath("../Idle")
 animation_name = "knocked_back"
 
+[node name="Stunned" type="Node" parent="State Machine" unique_id=910117479 node_paths=PackedStringArray("idle_state")]
+script = ExtResource("9_tnm1v")
+idle_state = NodePath("../Idle")
+animation_name = "stunned"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1805526160]
+
+[node name="StunTimer" type="Timer" parent="." unique_id=155621039]
+wait_time = 3.0
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="State Machine/Swiping" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="State Machine/Chasing" method="_on_timer_timeout"]
+[connection signal="timeout" from="StunTimer" to="State Machine/Stunned" method="_on_stun_timer_timeout"]

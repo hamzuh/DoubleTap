@@ -44,14 +44,25 @@ func _process(delta):
 	state_machine.process_frame(delta)
 
 func hit(killer, damage, knockback, instakill):
-	if instakill or health <= 0:
-		die(killer)
-	health -= damage
-	print(health)
+	# Enemy can't die for testing purposes
+	# Eternal torment
+	# Still not stunning enough
+	#health -= damage
+	#if instakill or health <= 0:
+		#die(killer)
+	#print(health)
 	killer.increase_points(10)
+	# For testing only, activate stun on enemy coin swallow or something
+	# Or consecutive melee hits
+	var stun_chance = randi_range(0, 3)
+	if stun_chance == 3:
+		knockdirect = killer.position.direction_to(self.position)
+		state_machine.change_state($"State Machine/Stunned")
+		return
 	if knockback:
 		knockdirect = killer.position.direction_to(self.position)
 		knockforce = knockback
+		# If state_machine.current_state.super_armor = false?
 		state_machine.change_state($"State Machine/Knockback")
 		#knockdirect = killer.position.direction_to(self.position)
 		#knockforce = knockback
