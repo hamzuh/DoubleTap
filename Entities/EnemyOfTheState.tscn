@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://w4ob2j4koekg" path="res://Scripts/Enemies/States/Swiping.gd" id="7_26cqg"]
 [ext_resource type="Script" uid="uid://bd61bexj678fd" path="res://Scripts/Enemies/States/Knockback.gd" id="8_ajv3r"]
 [ext_resource type="Script" uid="uid://cta3l40qqn8fd" path="res://Scripts/Enemies/States/Stunned.gd" id="9_tnm1v"]
+[ext_resource type="Script" uid="uid://cx5xv0oxc1j31" path="res://Scripts/Enemies/Enemy_Hitbox.gd" id="11_1atia"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_swvey"]
 animations = [{
@@ -93,8 +94,19 @@ radius = 17.0
 cull_mode = 1
 polygon = PackedVector2Array(-18, -18, -18, 18, 18, 18, 18, -18)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hox7v"]
+size = Vector2(70, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1atia"]
+size = Vector2(70, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsque"]
+size = Vector2(50, 50)
+
 [node name="StateEnemy" type="CharacterBody2D" unique_id=1914469750 groups=["Enemy"]]
 z_index = 2
+collision_layer = 4
+collision_mask = 71
 motion_mode = 1
 script = ExtResource("1_1c3vs")
 
@@ -151,8 +163,29 @@ animation_name = "stunned"
 [node name="StunTimer" type="Timer" parent="." unique_id=155621039]
 wait_time = 3.0
 
+[node name="Hitboxes" type="Area2D" parent="." unique_id=524942555]
+collision_layer = 64
+collision_mask = 132
+script = ExtResource("11_1atia")
+
+[node name="FrontStun" type="CollisionShape2D" parent="Hitboxes" unique_id=1781010010]
+position = Vector2(60, 0)
+shape = SubResource("RectangleShape2D_hox7v")
+disabled = true
+
+[node name="BackStun" type="CollisionShape2D" parent="Hitboxes" unique_id=2059506938]
+position = Vector2(-60, 0)
+shape = SubResource("RectangleShape2D_1atia")
+disabled = true
+
+[node name="Knockback" type="CollisionShape2D" parent="Hitboxes" unique_id=550072306]
+shape = SubResource("RectangleShape2D_qsque")
+disabled = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="State Machine/Swiping" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="State Machine/Chasing" method="_on_timer_timeout"]
 [connection signal="timeout" from="StunTimer" to="State Machine/Stunned" method="_on_stun_timer_timeout"]
+[connection signal="body_shape_entered" from="Hitboxes" to="Hitboxes" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="Hitboxes" to="Hitboxes" method="_on_body_shape_exited"]

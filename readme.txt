@@ -7,6 +7,12 @@ in 2D, so allow the player to attain a crazy level of power.
 Emphasise the perfect run. One completely independent mode where all is gained or lost in one playthrough.
 
 TO DO:
+	- You also swap weapons when doing the stun kick
+		_ Study RE5 and rethink the control scheme
+	- You can punch enemies through walls, not a feature
+	- Fix up collision layers and masks
+		- Add collision layer for coins
+	- Replace collision shape disabled with set_deferred("disabled", false)
 	- VITAL:
 		- Finish enemy state machine
 			- Make player take damage on enemy hit
@@ -47,6 +53,8 @@ TO DO:
 			- Stun
 			- Spawning
 			- Banging / ripping barriers
+			- Knockback / hit
+				- Particle2D or sprite for blood?
 		- Lerp to hitstop slowdown?
 		- Who doesn't love some cray cray UI (LERP)
 		- Gun smoke

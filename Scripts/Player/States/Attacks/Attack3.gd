@@ -8,6 +8,9 @@ var finished: bool = false
 func enter() -> void:
 	super()
 	parent.hands_occupied = true
+	# This sucks big time
+	# Maybe only use for stun attacks, new class, uninterruptible
+	parent.set_collision_layer_value(8, false)
 	$"../../Hitboxes/LK".disabled = false
 
 func _on_player_animations_animation_finished():
@@ -25,5 +28,6 @@ func process_physics(delta: float) -> State:
 	return null
 
 func exit() -> void:
+	parent.set_collision_layer_value(8, true)
 	parent.hands_occupied = false
 	super()

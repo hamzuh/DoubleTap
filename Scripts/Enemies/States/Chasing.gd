@@ -28,8 +28,9 @@ func process_physics(delta: float) -> State:
 	#if dead:
 		#return
 	if Globals.speed_scale:
-		parent.sprite.rotation = lerp_angle(parent.sprite.rotation, parent.velocity.angle(), 0.08)
-		parent.occluder.rotation = parent.sprite.rotation
+		parent.rotation = lerp_angle(parent.rotation, parent.velocity.angle(), 0.08)
+		#parent.sprite.rotation = lerp_angle(parent.sprite.rotation, parent.velocity.angle(), 0.08)
+		#parent.occluder.rotation = parent.sprite.rotation
 	
 	# Could probably just change this into a match
 	if parent.position.distance_to(parent.Player.position) >= 1000:

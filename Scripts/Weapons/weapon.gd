@@ -91,7 +91,7 @@ func fire():
 		tracer.set_point_position(0, get_parent().position)
 		if ray.is_colliding():
 			if ray.get_collider().is_in_group("Coin"):
-				ray.get_collider().hit(get_parent(), weaponName, damage, knockback, get_parent().instakill)
+				ray.get_collider().hit(get_parent(), get_parent(), weaponName, damage, knockback, get_parent().instakill)
 				tracer.set_point_position(1, ray.get_collider().position)
 				tracer.gradient.set_color(1, Color(1, 1, 1))
 				tracer.width_curve.set_point_value(0, 1)
@@ -100,7 +100,7 @@ func fire():
 				tracer.width_curve.set_point_value(0, 0.5)
 				tracer.gradient.set_color(1, Color(1, 0.71, 0))
 				if ray.get_collider().is_in_group("Enemy"):
-					ray.get_collider().hit(get_parent(), damage, knockback, get_parent().instakill)
+					ray.get_collider().hit(get_parent(), get_parent(), damage, knockback, get_parent().instakill)
 				tracer.set_point_position(1, ray.get_collision_point())
 		else:
 			tracer.set_point_position(1, (get_parent().position + (ray.target_position.rotated(get_parent().rotation))))

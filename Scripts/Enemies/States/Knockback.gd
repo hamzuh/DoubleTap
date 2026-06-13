@@ -2,6 +2,10 @@ extends State
 
 @export var idle_state: State
 
+func enter() -> void:
+	super()
+	$"../../Hitboxes/Knockback".set_deferred("disabled", false)
+
 # Animation doesn't loop and the length of knockback is set
 # This means we exit through this instead of the animation ended signal
 func process_physics(delta: float) -> State:
@@ -11,3 +15,7 @@ func process_physics(delta: float) -> State:
 	if parent.knockforce <= 0:
 		return idle_state
 	return null
+
+func exit() -> void:
+	$"../../Hitboxes/Knockback".set_deferred("disabled", true)
+	super()

@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 		tracer.visible = false
 		flash.visible = false
 	
-func hit(killer, weapon, damage, knockback, instakill):
+func hit(killer, source, weapon, damage, knockback, instakill):
 	traversed = true
 	whistle.stop()
 	if not hitted:
@@ -66,7 +66,7 @@ func hit(killer, weapon, damage, knockback, instakill):
 		# Syntax for filter is right though
 		var next_coin = get_tree().get_nodes_in_group("Coin").filter(func(check_coin): return not check_coin.traversed).pick_random()
 		if next_coin:
-			next_coin.hit(killer, weapon, damage, knockback, true)
+			next_coin.hit(killer, self, weapon, damage, knockback, true)
 			tracer.set_point_position(1, to_local(next_coin.position))
 			tracer.visible = true
 			flash.visible = true
@@ -85,7 +85,7 @@ func hit(killer, weapon, damage, knockback, instakill):
 				nearest_enemy = enemy
 				nearest_enemy_distance = position.distance_to(enemy.position)
 		if nearest_enemy:
-			nearest_enemy.hit(killer, damage, knockback, true)
+			nearest_enemy.hit(killer, self, damage, knockback, true)
 			tracer.set_point_position(1, to_local(nearest_enemy.position))
 			tracer.visible = true
 			flash.visible = true

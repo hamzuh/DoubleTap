@@ -92,6 +92,24 @@ offset_right = 307.0
 offset_bottom = 227.0
 text = "Spawn Room"
 
+[node name="ContextualAttack" type="Label" parent="." unique_id=559090479]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.8
+offset_left = -369.5
+offset_top = 56.0
+offset_right = 369.5
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Press Y to Kick"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=10706629]
 anchors_preset = 3
 anchor_left = 1.0

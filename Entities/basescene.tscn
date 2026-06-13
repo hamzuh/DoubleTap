@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c0tbq3yiqqsk5" path="res://Scripts/Misc/basescene.gd" id="1_jgno3"]
 [ext_resource type="PackedScene" uid="uid://2vtemamcqq6h" path="res://Entities/Environments/level1.tscn" id="3_j7xdm"]
 [ext_resource type="AudioStream" uid="uid://bxwihds4w2l86" path="res://Audio/Music/wesker.mp3" id="5_nl2ee"]
-[ext_resource type="PackedScene" uid="uid://ch8hesqmfncmk" path="res://Misc/HUD.tscn" id="5_nut14"]
+[ext_resource type="PackedScene" uid="uid://ch8hesqmfncmk" path="res://Entities/HUD.tscn" id="5_nut14"]
 
 [node name="Main" type="Node" unique_id=612323886]
 script = ExtResource("1_jgno3")
@@ -56,6 +56,7 @@ max_polyphony = 2
 [connection signal="round_start" from="." to="HUD" method="_on_main_round_start"]
 [connection signal="ammo_changed" from="Player" to="HUD" method="_on_player_ammo_changed"]
 [connection signal="buy_door" from="Player" to="Level" method="_on_player_buy_door"]
+[connection signal="contextualAttack" from="Player" to="HUD" method="_on_player_contextual_attack"]
 [connection signal="money_changed" from="Player" to="HUD" method="_on_player_money_changed"]
 [connection signal="powerOn" from="Player" to="." method="_on_player_power_on"]
 [connection signal="powerOn" from="Player" to="Level" method="_on_player_power_on"]

@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var roundCounter = $"Round Counter"
 @onready var roomDebug = $"Room Debug"
 @onready var powerMessage = $"Power Prompt"
+@onready var contextualAttack = $ContextualAttack
 
 func _on_player_money_changed(money):
 	moneyLabel.text = ("£" + str(money))
@@ -47,3 +48,18 @@ func _on_main_powerup_activate(startOrEnd: Variant, powerup_name: Variant) -> vo
 			$HBoxContainer/Instakill.visible = startOrEnd
 		"Fire Sale":
 			$"HBoxContainer/Fire Sale".visible = startOrEnd
+
+func _on_player_contextual_attack(toggle: Variant, attack: Variant) -> void:
+	if toggle:
+		match attack:
+			"front":
+				contextualAttack.text = "Press Y to Kick"
+			"back":
+				contextualAttack.text = "Press Y to Suplex"
+		contextualAttack.visible = true
+	# This might not work if you can still be in one contextual zone while exiting another
+	else:
+		# Could do match with:
+			# If contextualAttack.text = text for this attack
+				# visible = false
+		contextualAttack.visible = false

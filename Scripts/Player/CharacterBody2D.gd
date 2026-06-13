@@ -33,11 +33,17 @@ var double_points: bool = false
 # Camera Variables
 @onready var camera: Camera2D = $Camera2D
 
+# Stun Variables
+var frontStun: bool = false
+var backStun: bool = false
+var stunnables: Array
+
 # Signals
 signal money_changed()
 signal ammo_changed(current_ammo, reserve_ammo)
 signal buy_door(doorNum)
 signal powerOn()
+signal contextualAttack(toggle, attack)
 
 # State Machines Variables
 @onready var state_machine: Node = $"State Machine"
@@ -120,8 +126,10 @@ func _input(event: InputEvent) -> void:
 	if not hands_occupied:
 		if Input.is_action_just_pressed("Alt Fire"):
 			weapon.alt_fire()
-		if Input.is_action_just_pressed("Swap Weapon"):
-			weapon.swap()
+		# Probably best to just keep the stun attacks on another button
+		if not frontStun and not backStun:
+			if Input.is_action_just_pressed("Swap Weapon"):
+				weapon.swap()
 		if Input.is_action_just_pressed("Reload"):
 			weapon.reload()
 
@@ -151,3 +159,26 @@ func _on_hitstop(start, timescale, camera_shake, intensity, time):
 	movement_animation.speed_scale = timescale
 	if not start and camera_shake:
 		camera.shake(intensity, time)
+
+func stunChance(toggle, type, enemy):
+	# Add enemy to array and take away when toggled off
+	# Don't deactivate stun moves unless the array is empty
+	# This method doesn't consider leaving the right message based on which hitbox you're still in
+	# stunnables.append(enemy)
+	# You could flick either the enemy of the player's colliders on and off after the attack to recheck collision
+	#print(type)
+	if toggle:
+		match type:
+			"front":
+				frontStun = true
+				backStun = false
+			"back":
+				backStun = true
+				frontStun = false
+	else:
+		match type:
+			"front":
+				frontStun = false
+			"back":
+				backStun = false
+	contextualAttack.emit(toggle, type)

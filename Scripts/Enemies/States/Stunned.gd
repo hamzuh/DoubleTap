@@ -9,12 +9,21 @@ extends State
 @onready var sfx = load("res://Audio/Enemies/stun1.wav")
 @onready var stunTimer = $"../../StunTimer"
 
+# Hitbox variables
+# Replace this with animationPlayer toggles
+@onready var frontStun = $"../../Hitboxes/FrontStun"
+@onready var backStun = $"../../Hitboxes/BackStun"
+
 var finished
 var stun_force = 350
 
 func enter() -> void:
 	super()
+	finished = false
 	stun_force = 350
+	# Hitbox toggles
+	frontStun.set_deferred("disabled", false)
+	backStun.set_deferred("disabled", false)
 	# Sound play
 	sfxPlayer.stream = sfx
 	sfxPlayer.play()
@@ -24,16 +33,20 @@ func enter() -> void:
 func process_physics(delta: float) -> State:
 	parent.velocity = parent.knockdirect * stun_force * Globals.speed_scale
 	parent.move_and_slide()
-	stun_force -= 1000 * delta * Globals.speed_scale
+	if stun_force > 0:
+		stun_force -= 1000 * delta * Globals.speed_scale
 	# Not the best way to do this surely
-	if stun_force <= 0:
-		stun_force = 0
+	#if stun_force <= 0:
+		#stun_force = 0
 		#return idle_state
 	if finished:
 		return idle_state
 	return null
 	
 func exit() -> void:
+	# Hitbox toggles
+	frontStun.set_deferred("disabled", true)
+	backStun.set_deferred("disabled", true)
 	# Stop sound
 	if sfxPlayer.stream == sfx:
 		sfxPlayer.stop()

@@ -17,6 +17,8 @@ var variation: Vector2 = Vector2(randf_range(0, 22), 0).rotated(randf_range(0, 2
 var knock: bool = false
 var knockforce: float
 var knockdirect: Vector2
+# This sucks
+var knockback_source: Node
 
 # Death variables - probably needs changing later
 var dead: bool = false
@@ -43,7 +45,7 @@ func _physics_process(delta: float) -> void:
 func _process(delta):
 	state_machine.process_frame(delta)
 
-func hit(killer, damage, knockback, instakill):
+func hit(killer, source, damage, knockback, instakill):
 	# Enemy can't die for testing purposes
 	# Eternal torment
 	# Still not stunning enough
@@ -55,12 +57,15 @@ func hit(killer, damage, knockback, instakill):
 	# For testing only, activate stun on enemy coin swallow or something
 	# Or consecutive melee hits
 	var stun_chance = randi_range(0, 3)
+	#var stun_chance = 3
 	if stun_chance == 3:
-		knockdirect = killer.position.direction_to(self.position)
+		print("DINGLE")
+		knockdirect = source.position.direction_to(self.position)
 		state_machine.change_state($"State Machine/Stunned")
 		return
 	if knockback:
-		knockdirect = killer.position.direction_to(self.position)
+		knockback_source = killer
+		knockdirect = source.position.direction_to(self.position)
 		knockforce = knockback
 		# If state_machine.current_state.super_armor = false?
 		state_machine.change_state($"State Machine/Knockback")

@@ -185,6 +185,7 @@ polygon = PackedVector2Array(-208, 795, -199, 795, -199, 1003, -209, 1002)
 size = Vector2(114, 104)
 
 [node name="Level" type="StaticBody2D" unique_id=2119496087 groups=["World"]]
+collision_layer = 3
 script = ExtResource("1_dopym")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1030037510]
@@ -340,6 +341,7 @@ affect_navigation_mesh = true
 [node name="Doors" type="Node2D" parent="." unique_id=1271957221]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Doors" unique_id=1911640941]
+collision_layer = 2
 
 [node name="Door1" type="Sprite2D" parent="Doors/StaticBody2D" unique_id=997943093]
 texture = ExtResource("3_hx44q")
@@ -352,6 +354,7 @@ shape = SubResource("RectangleShape2D_6e4cv")
 occluder = SubResource("OccluderPolygon2D_ycv2e")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Doors" unique_id=2086514660]
+collision_layer = 2
 
 [node name="Door2" type="Sprite2D" parent="Doors/StaticBody2D2" unique_id=353876353]
 texture = ExtResource("4_n8vhr")
@@ -364,6 +367,7 @@ shape = SubResource("RectangleShape2D_hx44q")
 occluder = SubResource("OccluderPolygon2D_c5gc3")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Doors" unique_id=96058988]
+collision_layer = 2
 
 [node name="Door3" type="Sprite2D" parent="Doors/StaticBody2D3" unique_id=1459387635]
 texture = ExtResource("5_eqrsh")
@@ -376,6 +380,7 @@ shape = SubResource("RectangleShape2D_n8vhr")
 occluder = SubResource("OccluderPolygon2D_6e4cv")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Doors" unique_id=604721082]
+collision_layer = 2
 
 [node name="Door4" type="Sprite2D" parent="Doors/StaticBody2D4" unique_id=1244556098]
 texture = ExtResource("6_3l65w")
@@ -388,6 +393,7 @@ shape = SubResource("RectangleShape2D_eqrsh")
 occluder = SubResource("OccluderPolygon2D_uuy0h")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Doors" unique_id=1765981129]
+collision_layer = 2
 
 [node name="Door5" type="Sprite2D" parent="Doors/StaticBody2D5" unique_id=1769580272]
 texture = ExtResource("7_rjtee")
@@ -410,6 +416,7 @@ shape = SubResource("RectangleShape2D_rjtee")
 occluder = SubResource("OccluderPolygon2D_nxqqj")
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Doors" unique_id=1283400433]
+collision_layer = 2
 
 [node name="Door7" type="Sprite2D" parent="Doors/StaticBody2D7" unique_id=250428723]
 texture = ExtResource("9_beq0j")
@@ -422,6 +429,7 @@ shape = SubResource("RectangleShape2D_1idop")
 occluder = SubResource("OccluderPolygon2D_7nyxr")
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="Doors" unique_id=127230257]
+collision_layer = 2
 
 [node name="Door8" type="Sprite2D" parent="Doors/StaticBody2D8" unique_id=1998201932]
 texture = ExtResource("10_nauge")
@@ -434,6 +442,7 @@ shape = SubResource("RectangleShape2D_beq0j")
 occluder = SubResource("OccluderPolygon2D_43lh3")
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Doors" unique_id=1129238423]
+collision_layer = 2
 
 [node name="Door9" type="Sprite2D" parent="Doors/StaticBody2D9" unique_id=392482927]
 texture = ExtResource("11_ycv2e")
@@ -446,6 +455,7 @@ shape = SubResource("RectangleShape2D_nauge")
 occluder = SubResource("OccluderPolygon2D_5le63")
 
 [node name="StaticBody2D10" type="StaticBody2D" parent="Doors" unique_id=389376344]
+collision_layer = 2
 
 [node name="Door10" type="Sprite2D" parent="Doors/StaticBody2D10" unique_id=550086392]
 texture = ExtResource("12_c5gc3")

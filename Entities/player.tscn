@@ -111,7 +111,8 @@ size = Vector2(69, 51)
 [node name="Player" type="CharacterBody2D" unique_id=153121857 groups=["Player"]]
 z_index = 2
 texture_filter = 1
-collision_mask = 57
+collision_layer = 129
+collision_mask = 127
 motion_mode = 1
 script = ExtResource("1_dcg4n")
 
@@ -132,16 +133,18 @@ script = ExtResource("14_qbc8u")
 script = ExtResource("6_lfewg")
 start_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="State Machine" unique_id=720014103 node_paths=PackedStringArray("move_state", "attack_state")]
+[node name="Idle" type="Node" parent="State Machine" unique_id=720014103 node_paths=PackedStringArray("move_state", "attack_state", "stun_kick_state")]
 script = ExtResource("7_fa3h5")
 move_state = NodePath("../Moving")
 attack_state = NodePath("../Attack")
+stun_kick_state = NodePath("../Attack3")
 animation_name = "idle"
 
-[node name="Moving" type="Node" parent="State Machine" unique_id=1491604955 node_paths=PackedStringArray("idle_state", "attack_state")]
+[node name="Moving" type="Node" parent="State Machine" unique_id=1491604955 node_paths=PackedStringArray("idle_state", "attack_state", "stun_kick_state")]
 script = ExtResource("8_o2785")
 idle_state = NodePath("../Idle")
 attack_state = NodePath("../Attack")
+stun_kick_state = NodePath("../Attack3")
 animation_name = "move"
 
 [node name="Attack" type="Node" parent="State Machine" unique_id=1474447971 node_paths=PackedStringArray("idle_state", "move_state", "attack2_state")]
@@ -168,6 +171,7 @@ wooshSFX = ExtResource("23_vknsg")
 animation_name = "attack3"
 
 [node name="Hitboxes" type="Area2D" parent="." unique_id=214762545]
+collision_mask = 4
 script = ExtResource("20_u7xgm")
 
 [node name="LP" type="CollisionShape2D" parent="Hitboxes" unique_id=2087520493]

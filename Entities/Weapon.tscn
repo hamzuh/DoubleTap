@@ -26,6 +26,7 @@ scale = Vector2(15, 15)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=597323285]
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1567687769]
+collision_mask = 7
 collide_with_areas = true
 
 [node name="Line2D" type="Line2D" parent="." unique_id=2103399184]

@@ -24,7 +24,7 @@ var dead: bool = false
 # Signals
 signal enemy_dead(position)
 
-func hit(killer, damage, knockback, instakill):
+func hit(killer, source, damage, knockback, instakill):
 	if instakill:
 		die(killer)
 	health -= damage
