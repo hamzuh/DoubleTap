@@ -8,7 +8,7 @@ Emphasise the perfect run. One completely independent mode where all is gained o
 
 TO DO:
 	- You also swap weapons when doing the stun kick
-		_ Study RE5 and rethink the control scheme
+		- Study RE5 and rethink the control scheme
 	- You can punch enemies through walls, not a feature
 	- Fix up collision layers and masks
 		- Add collision layer for coins
