@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 			queue_free()
 	if tracerCooldown >= 0:
 		tracerCooldown -= delta
-		if tracerCooldown < 0.2:
+		if tracerCooldown < 0.11:
 			# Probably a better way to do this
 			if audioPlayer.stream == load("res://Audio/Weapons/Coin/coinhit.wav"):
 				audioPlayer.stop()
@@ -71,8 +71,8 @@ func hit(killer, source, weapon, damage, knockback, instakill):
 			tracer.visible = true
 			flash.visible = true
 			shot = true
-			tracerCooldown = 0.35
-			Globals.hitstop_activate(0.35, 0, true, 10, 0.3)
+			tracerCooldown = 0.3
+			Globals.hitstop_activate(0.3, 0, true, 10, 0.3)
 			hitted = true
 			return
 		# Called when bullet hits this
