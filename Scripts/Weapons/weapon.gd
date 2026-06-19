@@ -77,6 +77,10 @@ func _physics_process(delta: float) -> void:
 
 func fire():
 	if canFire():
+		# Replace this with a system for taking animation names from the WeaponStat resource
+		# Tie up with animationPlayer pulling from the spritesheet
+		get_parent().movement_animation.stop()
+		get_parent().movement_animation.play("pistol_shot")
 		ammo_dict[weaponName][0] -= 1
 		get_parent().ammo_changed.emit(ammo_dict[weaponName][0], ammo_dict[weaponName][1])
 		# Play shot effect
