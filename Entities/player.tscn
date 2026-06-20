@@ -48,8 +48,12 @@
 [ext_resource type="Texture2D" uid="uid://dbfo3ovgk4rx" path="res://Art/Light Textures/torch_light.png" id="28_jcafi"]
 [ext_resource type="Texture2D" uid="uid://cqyyrmom63pxl" path="res://Art/Player/pistol.png" id="29_4ad75"]
 [ext_resource type="Texture2D" uid="uid://bixwbahkg0nua" path="res://Art/Player/Pistol/Shot/PistolShot_0000.png" id="30_3k8vt"]
+[ext_resource type="Texture2D" uid="uid://ctc2l003tfui1" path="res://Art/Player/Pistol/Equip/PistolEquip_0000.png" id="30_vyrce"]
 [ext_resource type="Texture2D" uid="uid://brie6xep743ys" path="res://Art/Player/Pistol/Shot/PistolShot_0001.png" id="31_5c62e"]
+[ext_resource type="Texture2D" uid="uid://bdl2o1udbphmj" path="res://Art/Player/Pistol/Equip/PistolEquip_0001.png" id="31_bk8ja"]
+[ext_resource type="Texture2D" uid="uid://c0adsci4xbxjg" path="res://Art/Player/Pistol/Equip/PistolEquip_0002.png" id="32_are1o"]
 [ext_resource type="Texture2D" uid="uid://c2dmmiuh5hy40" path="res://Art/Player/Pistol/Shot/PistolShot_0002.png" id="32_fch6x"]
+[ext_resource type="Texture2D" uid="uid://dyeg8p7ebusee" path="res://Art/Player/Pistol/Equip/PistolEquip_0003.png" id="33_pwbf0"]
 [ext_resource type="Texture2D" uid="uid://b018arq4w0sla" path="res://Art/Player/Pistol/Shot/PistolShot_0003.png" id="33_ts3vm"]
 [ext_resource type="Texture2D" uid="uid://gmqkayqufx6p" path="res://Art/Player/Pistol/Shot/PistolShot_0004.png" id="34_vyrce"]
 
@@ -177,6 +181,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("30_vyrce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_bk8ja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_are1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_pwbf0")
+}],
+"loop": false,
+"name": &"pistol_equip",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("30_3k8vt")
 }, {
 "duration": 1.0,
@@ -218,7 +239,7 @@ animation = &"walk"
 [node name="PlayerAnimations" type="AnimatedSprite2D" parent="." unique_id=1741929972]
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_6fhto")
-animation = &"attack1"
+animation = &"pistol_equip"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1336274023]
 shape = SubResource("CircleShape2D_sr0yt")

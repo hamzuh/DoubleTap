@@ -160,6 +160,8 @@ func swap():
 	
 	get_parent().ammo_changed.emit(ammo_dict[weaponName][0], ammo_dict[weaponName][1])
 	
+	get_parent().movement_animation.play("pistol_equip")
+	
 	audioPlayer.pitch_scale = 1
 	audioPlayer.stream = drawSFX
 	audioPlayer.play()

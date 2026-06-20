@@ -132,3 +132,7 @@ debug_lights={
 2d_physics/layer_6="Individual Rooms"
 2d_physics/layer_7="Enemy Hitboxes"
 2d_physics/layer_8="Player Hurtbox"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

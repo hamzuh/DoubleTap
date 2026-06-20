@@ -6,12 +6,15 @@ extends State
 @onready var navigation_agent = $"../../NavigationAgent2D"
 @onready var variation: Vector2 = Vector2(randf_range(0, 22), 0).rotated(randf_range(0, 2*PI))
 
+@onready var legAnim = $"../../Legs"
+
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	
 func enter() -> void:
 	super()
 	set_movement_target(parent.Player.position + variation)
+	legAnim.play("walk")
 	
 func set_movement_target(movement_target: Vector2):
 	navigation_agent.set_target_position(movement_target)
@@ -28,9 +31,11 @@ func process_physics(delta: float) -> State:
 	#if dead:
 		#return
 	if Globals.speed_scale:
+		legAnim.rotation = parent.velocity.angle() - parent.rotation
 		parent.rotation = lerp_angle(parent.rotation, parent.velocity.angle(), 0.08)
 		#parent.sprite.rotation = lerp_angle(parent.sprite.rotation, parent.velocity.angle(), 0.08)
 		#parent.occluder.rotation = parent.sprite.rotation
+	legAnim.speed_scale = (0.1 + (0.9 * (parent.speed / parent.velocity.length()))) * Globals.speed_scale
 	
 	# Could probably just change this into a match
 	if parent.position.distance_to(parent.Player.position) >= 1000:
@@ -78,3 +83,8 @@ func _on_velocity_computed(safe_velocity: Vector2):
 # Remove other timeout signal from main script
 func _on_timer_timeout() -> void:
 	set_movement_target(parent.Player.position + variation)
+
+func exit() -> void:
+	legAnim.speed_scale = 1 * Globals.speed_scale
+	legAnim.stop()
+	super()
