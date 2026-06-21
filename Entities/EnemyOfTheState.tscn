@@ -4,10 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://duji3f0iq6snk" path="res://Art/Enemies/enemydead.png" id="2_8yhn4"]
 [ext_resource type="Texture2D" uid="uid://dirk8dhxtvmk8" path="res://Art/Player/Legs/WalkNew_0000.png" id="2_jd3v2"]
 [ext_resource type="Texture2D" uid="uid://c5v14ojtm4y5u" path="res://Art/Player/Legs/WalkNew_0001.png" id="3_bxgbr"]
-[ext_resource type="Texture2D" uid="uid://c24jw8vj2v1ya" path="res://Art/Enemies/enemy.png" id="3_je4vh"]
 [ext_resource type="Script" uid="uid://jlbwwim7iocr" path="res://Scripts/Player/State Machine.gd" id="4_8yhn4"]
 [ext_resource type="Texture2D" uid="uid://bindwvslyluhe" path="res://Art/Player/Legs/WalkNew_0002.png" id="4_a4yu5"]
-[ext_resource type="Texture2D" uid="uid://jvpf5gpagugt" path="res://Art/Enemies/enemyStun.png" id="4_hox7v"]
 [ext_resource type="Texture2D" uid="uid://d4cs8dbbu8hhc" path="res://Art/Enemies/Zombie/Walk/ZombieWalk_0000.png" id="5_bvrs6"]
 [ext_resource type="Script" uid="uid://30c2ovus8cbr" path="res://Scripts/Enemies/States/Idle_Enemy.gd" id="5_je4vh"]
 [ext_resource type="Texture2D" uid="uid://cqouo8u0br82r" path="res://Art/Player/Legs/WalkNew_0003.png" id="5_uyc8r"]
@@ -47,11 +45,45 @@
 [ext_resource type="Texture2D" uid="uid://d4bncfqhmvbvp" path="res://Art/Enemies/Zombie/Walk/ZombieWalk_0015.png" id="20_8q7lj"]
 [ext_resource type="Texture2D" uid="uid://sw2ci3lo4db8" path="res://Art/Enemies/Zombie/idle.png" id="21_bxgbr"]
 [ext_resource type="Texture2D" uid="uid://dg1n7iweqiial" path="res://Art/Enemies/Zombie/Walk/ZombieWalk_0016.png" id="21_pmrkg"]
+[ext_resource type="Texture2D" uid="uid://cyq63bq1713kf" path="res://Art/Enemies/Zombie/Hit/Hit_0000.png" id="22_0rj54"]
+[ext_resource type="Texture2D" uid="uid://bwu2athuplxl2" path="res://Art/Enemies/Zombie/Stun/Stun_0000.png" id="22_hq7lq"]
 [ext_resource type="Texture2D" uid="uid://df8v0xjj77lhy" path="res://Art/Enemies/Zombie/Walk/ZombieWalk_0017.png" id="22_y7teh"]
+[ext_resource type="Texture2D" uid="uid://brgyt4n4bpsad" path="res://Art/Enemies/Zombie/Stun/Stun_0001.png" id="23_6ra47"]
 [ext_resource type="Texture2D" uid="uid://b25w88t6iuje6" path="res://Art/Enemies/Zombie/Walk/ZombieWalk_0018.png" id="23_jd3v2"]
+[ext_resource type="Texture2D" uid="uid://c4xrufcu8od8f" path="res://Art/Enemies/Zombie/Stun/Stun_0002.png" id="24_7gux7"]
 [ext_resource type="Texture2D" uid="uid://m7oajd7631th" path="res://Art/Enemies/Zombie/Walk/ZombieWalk_0019.png" id="24_bxgbr"]
+[ext_resource type="Texture2D" uid="uid://c10dlchf7mcdf" path="res://Art/Enemies/Zombie/Hit/Hit_0002.png" id="24_qcs1h"]
+[ext_resource type="Texture2D" uid="uid://dhaa4jvsiq32d" path="res://Art/Enemies/Zombie/Hit/Hit_0003.png" id="25_2r788"]
 [ext_resource type="Texture2D" uid="uid://cvk4pd1ci6hnn" path="res://Art/Enemies/Zombie/Walk/ZombieWalk_0020.png" id="25_a4yu5"]
+[ext_resource type="Texture2D" uid="uid://cbqdx6h30cq3n" path="res://Art/Enemies/Zombie/Stun/Stun_0003.png" id="25_a23gj"]
+[ext_resource type="Texture2D" uid="uid://pkttsgovusx0" path="res://Art/Enemies/Zombie/Stun/Stun_0004.png" id="26_5w3lv"]
+[ext_resource type="Texture2D" uid="uid://2t82sp0w7qd7" path="res://Art/Enemies/Zombie/Hit/Hit_0004.png" id="26_g2g1a"]
 [ext_resource type="Texture2D" uid="uid://tbhrsw4qrc2i" path="res://Art/Enemies/Zombie/Walk/ZombieWalk_0021.png" id="26_uyc8r"]
+[ext_resource type="Texture2D" uid="uid://dycg7sqcw6igq" path="res://Art/Enemies/Zombie/Stun/Stun_0005.png" id="27_0rj54"]
+[ext_resource type="Texture2D" uid="uid://dgjmcehimu61d" path="res://Art/Enemies/Zombie/Stun/Stun_0006.png" id="28_8vv5n"]
+[ext_resource type="Texture2D" uid="uid://hssesxkfmmou" path="res://Art/Enemies/Zombie/Stun/Stun_0007.png" id="29_qcs1h"]
+[ext_resource type="Texture2D" uid="uid://biu7ufnl5ybu6" path="res://Art/Enemies/Zombie/Stun/Stun_0008.png" id="30_2r788"]
+[ext_resource type="Texture2D" uid="uid://me63wmyy75xi" path="res://Art/Enemies/Zombie/Stun/Stun_0009.png" id="31_g2g1a"]
+[ext_resource type="Texture2D" uid="uid://de6c48cj52uyi" path="res://Art/Enemies/Zombie/Stun/Stun_0010.png" id="32_yuw4x"]
+[ext_resource type="Texture2D" uid="uid://bogyvoh73pjxl" path="res://Art/Enemies/Zombie/Stun/Stun_0011.png" id="33_bw5hf"]
+[ext_resource type="Texture2D" uid="uid://c0igg0flbtj25" path="res://Art/Enemies/Zombie/Stun/Stun_0012.png" id="34_3wplh"]
+[ext_resource type="Texture2D" uid="uid://bskm0tqxqg6af" path="res://Art/Enemies/Zombie/Stun/Stun_0013.png" id="35_1aawf"]
+[ext_resource type="Texture2D" uid="uid://c6qvymfdfueoj" path="res://Art/Enemies/Zombie/Stun/Stun_0014.png" id="36_8h4li"]
+[ext_resource type="Texture2D" uid="uid://b8v1hjb50o0e1" path="res://Art/Enemies/Zombie/Stun/Stun_0015.png" id="37_u8aw6"]
+[ext_resource type="Texture2D" uid="uid://cdbfr14xar3dl" path="res://Art/Enemies/Zombie/Swipe/Swipe_0000.png" id="43_u8aw6"]
+[ext_resource type="Texture2D" uid="uid://conmefyifd5wt" path="res://Art/Enemies/Zombie/Swipe/Swipe_0001.png" id="44_0lit4"]
+[ext_resource type="Texture2D" uid="uid://c5pqgkxnovnky" path="res://Art/Enemies/Zombie/Swipe/Swipe_0002.png" id="45_snolr"]
+[ext_resource type="Texture2D" uid="uid://baq3drp04wcpd" path="res://Art/Enemies/Zombie/Swipe/Swipe_0003.png" id="46_evukn"]
+[ext_resource type="Texture2D" uid="uid://bt17tyws8hbe0" path="res://Art/Enemies/Zombie/Swipe/Swipe_0004.png" id="47_hby4t"]
+[ext_resource type="Texture2D" uid="uid://cf0s2wjdhwfrr" path="res://Art/Enemies/Zombie/Swipe/Swipe_0005.png" id="48_b5ndv"]
+[ext_resource type="Texture2D" uid="uid://cibn61vh6vgin" path="res://Art/Enemies/Zombie/Swipe/Swipe_0006.png" id="49_p07p2"]
+[ext_resource type="Texture2D" uid="uid://6nd2oxk0suuc" path="res://Art/Enemies/Zombie/Swipe/Swipe_0007.png" id="50_2dcpq"]
+[ext_resource type="Texture2D" uid="uid://cb50gkufk65xy" path="res://Art/Enemies/Zombie/Swipe/Swipe_0008.png" id="51_7usqb"]
+[ext_resource type="Texture2D" uid="uid://c4576thhfkjkl" path="res://Art/Enemies/Zombie/Swipe/Swipe_0009.png" id="52_nc1ly"]
+[ext_resource type="Texture2D" uid="uid://dvvovqcjuspmh" path="res://Art/Enemies/Zombie/Swipe/Swipe_0010.png" id="53_6hkpp"]
+[ext_resource type="AudioStream" uid="uid://di6iaem5hwdky" path="res://Audio/Enemies/Zombie/zombie_attack_scream.wav" id="79_0lit4"]
+[ext_resource type="AudioStream" uid="uid://cn5x4tdonnsrt" path="res://Audio/Enemies/Zombie/zombie_attack_scream_2.wav" id="80_snolr"]
+[ext_resource type="AudioStream" uid="uid://dsimvgx4pviwj" path="res://Audio/Enemies/Zombie/zombie_swipe.wav" id="81_snolr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7gux7"]
 animations = [{
@@ -112,7 +144,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 15.0
+"speed": 8.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_swvey"]
@@ -140,40 +172,112 @@ animations = [{
 "speed": 15.0
 }, {
 "frames": [{
+"duration": 3.0,
+"texture": ExtResource("22_0rj54")
+}, {
 "duration": 1.0,
-"texture": ExtResource("2_8yhn4")
+"texture": ExtResource("24_qcs1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_2r788")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_g2g1a")
 }],
 "loop": false,
 "name": &"knocked_back",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_hox7v")
+"texture": ExtResource("22_hq7lq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_6ra47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_7gux7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_a23gj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_5w3lv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_0rj54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_8vv5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_qcs1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_2r788")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_g2g1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_yuw4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_bw5hf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_3wplh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_1aawf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_8h4li")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_u8aw6")
 }],
 "loop": true,
 "name": &"stunned",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_8yhn4")
+"texture": ExtResource("43_u8aw6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_je4vh")
+"texture": ExtResource("44_0lit4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_8yhn4")
+"texture": ExtResource("45_snolr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_je4vh")
+"texture": ExtResource("46_evukn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_8yhn4")
+"texture": ExtResource("47_hby4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_b5ndv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_p07p2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_2dcpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_7usqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_nc1ly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_6hkpp")
 }],
 "loop": false,
 "name": &"swipe",
-"speed": 30.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -244,11 +348,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 12.0
+"speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7upyn"]
-radius = 32.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_u8aw6"]
+radius = 34.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_swvey"]
 cull_mode = 1
@@ -280,10 +384,12 @@ frame_progress = 0.020008663
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1559935375]
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_swvey")
-animation = &"swipe"
+animation = &"knocked_back"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1839065831]
-shape = SubResource("CircleShape2D_7upyn")
+shape = SubResource("CircleShape2D_u8aw6")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=390726249]
 
@@ -314,6 +420,7 @@ animation_name = "walk"
 script = ExtResource("7_26cqg")
 idle_state = NodePath("../Idle")
 chasing_state = NodePath("../Chasing")
+sfxArray = Array[AudioStream]([ExtResource("79_0lit4"), ExtResource("80_snolr"), ExtResource("81_snolr")])
 animation_name = "swipe"
 
 [node name="Knockback" type="Node" parent="State Machine" unique_id=1408865347 node_paths=PackedStringArray("idle_state")]
@@ -327,6 +434,7 @@ idle_state = NodePath("../Idle")
 animation_name = "stunned"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1805526160]
+volume_db = -2.137
 
 [node name="StunTimer" type="Timer" parent="." unique_id=155621039]
 wait_time = 3.0
